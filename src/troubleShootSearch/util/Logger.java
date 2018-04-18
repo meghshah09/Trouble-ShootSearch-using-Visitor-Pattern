@@ -8,13 +8,13 @@ public class Logger {
  //                                  };
 
     private static DebugLevel debugLevel;
-
-
     // FIXME: Add switch cases for all the levels
     public static void setDebugValue (int levelIn) {
 	switch (levelIn) {
 	case 4: debugLevel = DebugLevel.SEARCH;
+			break;
 	case 3: debugLevel = DebugLevel.PRODUCTS;
+			break;
 	case 2: debugLevel = DebugLevel.CONSTRUCTOR;
 			break;
 	case 1: debugLevel = DebugLevel.FILE_PROCESSOR;
