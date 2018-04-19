@@ -3,15 +3,15 @@ package troubleShootSearch.searchAlgorithms;
 import java.util.ArrayList;
 import java.util.List;
 
-import troubleShootSearch.Products.HDDProduct1;
+import troubleShootSearch.Products.HDDProduct;
 import troubleShootSearch.Products.MediaPlayers;
 import troubleShootSearch.Products.SSDProduct;
 import troubleShootSearch.Products.USBProduct;
 
-public class NaiveStemmingMatch implements SearchAlgorithms{
+public class NaiveStemmingMatchVisitor implements SearchAlgorithmsVisitorI{
 
 	@Override
-	public void visit(HDDProduct1 hddProduct1, String problemKeyword) {
+	public void visit(HDDProduct hddProduct1, String problemKeyword) {
 		List<String> technicalProblemGuide = hddProduct1.getHDDProductTechnicalGuide();
 		this.search(problemKeyword, technicalProblemGuide);
 	}	
@@ -41,7 +41,10 @@ public class NaiveStemmingMatch implements SearchAlgorithms{
 			if(string.contains(tempArray[0])) {
 			naiveStemmingMatchOutput.add(string);
 			}
-		}		
+		}
+		for(String string : naiveStemmingMatchOutput) {
+			System.out.println("NaiveStemmingMatchVisitor "+string);
+		}
 		return naiveStemmingMatchOutput;
 	}
 

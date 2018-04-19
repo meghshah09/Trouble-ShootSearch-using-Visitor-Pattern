@@ -1,9 +1,9 @@
 package troubleShootSearch.Products;
 
-import troubleShootSearch.searchAlgorithms.SearchAlgorithms;
+import troubleShootSearch.searchAlgorithms.SearchAlgorithmsVisitorI;
 
 public interface ProductsI {
 	
-	public void accept(SearchAlgorithms searchAlgorithms);
+	public void accept(SearchAlgorithmsVisitorI searchAlgorithmsVisitorI);
 	
 }

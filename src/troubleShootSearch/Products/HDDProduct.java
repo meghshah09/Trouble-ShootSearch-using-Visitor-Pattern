@@ -2,9 +2,9 @@ package troubleShootSearch.Products;
 
 import java.util.List;
 
-import troubleShootSearch.searchAlgorithms.SearchAlgorithms;
+import troubleShootSearch.searchAlgorithms.SearchAlgorithmsVisitorI;
 
-public class HDDProduct1 implements ProductsI{
+public class HDDProduct implements ProductsI{
 	
 	private List<String> HDDProductTechnicalGuide;
 	private String ProblemKeyword;
@@ -22,8 +22,8 @@ public class HDDProduct1 implements ProductsI{
 		HDDProductTechnicalGuide = hDDProductTechnicalGuide;
 	}
 	
-	public void accept(SearchAlgorithms searchAlgorithms){
-		searchAlgorithms.visit(this, ProblemKeyword);
+	public void accept(SearchAlgorithmsVisitorI searchAlgorithmsVisitorI){
+		searchAlgorithmsVisitorI.visit(this, ProblemKeyword);
 	}
 
 }

@@ -2,7 +2,7 @@ package troubleShootSearch.Products;
 
 import java.util.List;
 
-import troubleShootSearch.searchAlgorithms.SearchAlgorithms;
+import troubleShootSearch.searchAlgorithms.SearchAlgorithmsVisitorI;
 
 public class SSDProduct  implements ProductsI{
 	private List<String> SDDProductTechnicalGuide;
@@ -24,8 +24,8 @@ public class SSDProduct  implements ProductsI{
 		this.problemKeyword = problemKeyword;
 	}
 	@Override
-	public void accept(SearchAlgorithms searchAlgorithms) {
-		searchAlgorithms.visit(this, problemKeyword);
+	public void accept(SearchAlgorithmsVisitorI searchAlgorithmsVisitorI) {
+		searchAlgorithmsVisitorI.visit(this, problemKeyword);
 		
 	}
 

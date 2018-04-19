@@ -28,7 +28,7 @@ public class ReadTechnicalGuidelineFiles {
 	public void FileProcessor() {
 
 		try {
-			filePath = "";
+			filePath = "C:\\";
 			File file = new File(filePath);
 			scanner = new Scanner(file);
 		}
