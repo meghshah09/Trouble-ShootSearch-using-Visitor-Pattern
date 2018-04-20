@@ -25,7 +25,7 @@ public class USBProduct  implements ProductsI{
 	
 	@Override
 	public void accept(SearchAlgorithmsVisitorI searchAlgorithmsVisitorI) {
-		searchAlgorithmsVisitorI.visit(this, problemKeyword);
+		searchAlgorithmsVisitorI.visit(this);
 	}
 
 }

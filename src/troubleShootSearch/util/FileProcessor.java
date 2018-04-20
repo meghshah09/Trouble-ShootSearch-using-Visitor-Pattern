@@ -98,12 +98,12 @@ public class FileProcessor {
         
         }
         else{
-            System.out.println("File does not exist");
+            System.out.println(this.getFileName()+" File does not exist");
             System.exit(0);
         }
        }catch(IOException e){
         //System.out.println("exception"); 
-        System.out.println("File does not exist");
+        System.out.println(this.getFileName()+" File does not exist");
             System.exit(0);
        }
        finally{

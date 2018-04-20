@@ -11,24 +11,24 @@ import troubleShootSearch.Products.USBProduct;
 public class NaiveStemmingMatchVisitor implements SearchAlgorithmsVisitorI{
 
 	@Override
-	public void visit(HDDProduct hddProduct1, String problemKeyword) {
+	public void visit(HDDProduct hddProduct1) {
 		List<String> technicalProblemGuide = hddProduct1.getHDDProductTechnicalGuide();
-		this.search(problemKeyword, technicalProblemGuide);
+		this.search(hddProduct1.getProblemKeyword(), technicalProblemGuide);
 	}	
 	@Override
-	public void visit(MediaPlayers mediaPlayers, String problemKeyword) {
+	public void visit(MediaPlayers mediaPlayers) {
 		List<String> technicalProblemGuide = mediaPlayers.getMediaPlayerTechnicalGuide();
-		this.search(problemKeyword, technicalProblemGuide);
+		this.search(mediaPlayers.getProblemKeyword(), technicalProblemGuide);
 	}	
 	@Override
-	public void visit(SSDProduct sddProduct, String problemKeyword) {
-		List<String> technicalProblemGuide = sddProduct.getSDDProductTechnicalGuide();
-		this.search(problemKeyword, technicalProblemGuide);
+	public void visit(SSDProduct sddProduct) {
+		List<String> technicalProblemGuide = sddProduct.getSSDProductTechnicalGuide();
+		this.search(sddProduct.getProblemKeyword(), technicalProblemGuide);
 	}	
 	@Override
-	public void visit(USBProduct usbProduct, String problemKeyword) {
+	public void visit(USBProduct usbProduct) {
 		List<String> technicalProblemGuide = usbProduct.getUSBProductTechnicalGuide();
-		this.search(problemKeyword, technicalProblemGuide);
+		this.search(usbProduct.getProblemKeyword(), technicalProblemGuide);
 	}	
 
 

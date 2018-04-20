@@ -5,15 +5,15 @@ import java.util.List;
 import troubleShootSearch.searchAlgorithms.SearchAlgorithmsVisitorI;
 
 public class SSDProduct  implements ProductsI{
-	private List<String> SDDProductTechnicalGuide;
+	private List<String> SSDProductTechnicalGuide;
 	private String problemKeyword;
 	
-	public List<String> getSDDProductTechnicalGuide() {
-		return SDDProductTechnicalGuide;
+	public List<String> getSSDProductTechnicalGuide() {
+		return SSDProductTechnicalGuide;
 	}
 
-	public void setSDDProductTechnicalGuide(List<String> sDDProductTechnicalGuide) {
-		SDDProductTechnicalGuide = sDDProductTechnicalGuide;
+	public void setSSDProductTechnicalGuide(List<String> sDDProductTechnicalGuide) {
+		SSDProductTechnicalGuide = sDDProductTechnicalGuide;
 	}
 
 	public String getProblemKeyword() {
@@ -25,7 +25,7 @@ public class SSDProduct  implements ProductsI{
 	}
 	@Override
 	public void accept(SearchAlgorithmsVisitorI searchAlgorithmsVisitorI) {
-		searchAlgorithmsVisitorI.visit(this, problemKeyword);
+		searchAlgorithmsVisitorI.visit(this);
 		
 	}
 

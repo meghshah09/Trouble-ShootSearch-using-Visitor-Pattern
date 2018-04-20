@@ -5,8 +5,9 @@
  */
 package troubleShootSearch.driver;
 
-import java.util.ArrayList;
+
 import java.util.List;
+import java.util.Scanner;
 
 import troubleShootSearch.Products.HDDProduct;
 import troubleShootSearch.Products.MediaPlayers;
@@ -15,7 +16,9 @@ import troubleShootSearch.Products.USBProduct;
 import troubleShootSearch.searchAlgorithms.ExactMatchVisitor;
 import troubleShootSearch.searchAlgorithms.NaiveStemmingMatchVisitor;
 import troubleShootSearch.searchAlgorithms.SearchAlgorithmsVisitorI;
-import troubleShootSearch.searchAlgorithms.SemanticMatchVisitor;
+import troubleShootSearch.util.FileProcessor;
+import troubleShootSearch.util.FilesLoader;
+
 
 
 /**
@@ -27,13 +30,54 @@ public class Driver {
     /**
      * @param args the command line arguments
      */
+   
     public static void main(String[] args) {
         
-    	HDDProduct hddProduct1 = new HDDProduct();
+        if(args.length==1){
+            System.out.println("================================================");
+            System.out.println("            Trouble Shoot Seacrh             ");
+            System.out.println("================================================");
+            System.out.println("");
+            System.out.println("Starting the Process......");
+                System.out.println("Trying to See Search from the given input file : "+ args[0]+" given.....");
+                System.out.println("");
+                Scanner scan = new Scanner(System.in);
+                FileProcessor fp = new FileProcessor(scan);
+                FilesLoader fl = new FilesLoader(fp);
+                List<String> userSentences = fl.loadInputs(args[0]);
+                
+                HDDProduct hddProduct = new HDDProduct(userSentences);
+                List<String> HDDtechnicalGuide = fl.loadInputs("Product1Guide.txt");
+                hddProduct.setHDDProductTechnicalGuide(HDDtechnicalGuide);
+                
+        	MediaPlayers mediaPlayers = new MediaPlayers();
+                List<String> mediaPlayerTechnicalGuide = fl.loadInputs("product2Guide.txt");
+                mediaPlayers.setMediaPlayerTechnicalGuide(mediaPlayerTechnicalGuide);
+                
+                SSDProduct ssdProduct = new SSDProduct();
+                List<String> SSDtechnicalGuide = fl.loadInputs("product3Guide.txt");
+                ssdProduct.setSSDProductTechnicalGuide(SSDtechnicalGuide);
+                
+                USBProduct usbProduct = new USBProduct();
+                List<String> USBtechnicalGuide = fl.loadInputs("product4Guide.txt");
+                usbProduct.setUSBProductTechnicalGuide(USBtechnicalGuide);
+
+                SearchAlgorithmsVisitorI exactMatch = new ExactMatchVisitor();
+                
+                
+                SearchAlgorithmsVisitorI naiveStemmingMatch = new NaiveStemmingMatchVisitor();
+                hddProduct.accept(exactMatch);
+                //hddProduct.accept(naiveStemmingMatch);
+                /*for(String s : userSentences){
+                    System.out.println(s);
+                }*/
+                
+        }
+    	/*HDDProduct hddProduct1 = new HDDProduct();
 /*    	MediaPlayers mediaPlayers = new MediaPlayers();
     	SSDProduct ssdProduct = new SSDProduct();
     	USBProduct usbProduct = new USBProduct();
-*/    	List<String> tempSentences = new ArrayList<String>();
+   	List<String> tempSentences = new ArrayList<String>();
     	tempSentences.add("If Debian has a problem detectinge the drive, it could be that the portable drive is not receiving enough power.");
     	tempSentences.add("If Mihir has a aproblem detect the drive, it could be that the portable drive is not receiving enough power.");
     	tempSentences.add("If Megh has a roblem detecting the drive, it could be that the portable drive is not receiving enough power.");
@@ -50,7 +94,7 @@ public class Driver {
     //	hddProduct1.accept(semanticMatch);
     	
     	
-    	/* 	mediaPlayers.accept(exactMatch);
+    	 	mediaPlayers.accept(exactMatch);
     	mediaPlayers.accept(naiveStemmingMatch);
     	mediaPlayers.accept(semanticMatch);
     	ssdProduct.accept(exactMatch);

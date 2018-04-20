@@ -8,12 +8,16 @@ public class HDDProduct implements ProductsI{
 	
 	private List<String> HDDProductTechnicalGuide;
 	private String ProblemKeyword;
-	
+	private List<String> inputs;
+        
+        public HDDProduct(List<String> in){
+            inputs = in;
+        }
 	public String getProblemKeyword() {
 		return ProblemKeyword;
 	}
-	public void setProblemKeyword(String problemKeyword) {
-		ProblemKeyword = problemKeyword;
+	public void setProblemKeyword(String problemKeywordIn) {
+		ProblemKeyword = problemKeywordIn;
 	}
 	public List<String> getHDDProductTechnicalGuide() {
 		return HDDProductTechnicalGuide;
@@ -22,8 +26,13 @@ public class HDDProduct implements ProductsI{
 		HDDProductTechnicalGuide = hDDProductTechnicalGuide;
 	}
 	
+        @Override
 	public void accept(SearchAlgorithmsVisitorI searchAlgorithmsVisitorI){
-		searchAlgorithmsVisitorI.visit(this, ProblemKeyword);
+            for(String s :inputs){
+                this.setProblemKeyword(s);
+                searchAlgorithmsVisitorI.visit(this);
+            }
+		//searchAlgorithmsVisitorI.visit(this);
 	}
 
 }
