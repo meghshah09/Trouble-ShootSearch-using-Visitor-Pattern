@@ -8,8 +8,12 @@ public class USBProduct  implements ProductsI{
 	
 	private List<String> USBProductTechnicalGuide;
 	private String problemKeyword;
+	private List<String> input;
 	
-	
+        public USBProduct(List<String> in){
+            input = in;
+        }
+        
 	public List<String> getUSBProductTechnicalGuide() {
 		return USBProductTechnicalGuide;
 	}
@@ -25,7 +29,11 @@ public class USBProduct  implements ProductsI{
 	
 	@Override
 	public void accept(SearchAlgorithmsVisitorI searchAlgorithmsVisitorI) {
-		searchAlgorithmsVisitorI.visit(this);
+            for(String s : input){
+                this.setProblemKeyword(s);
+                searchAlgorithmsVisitorI.visit(this);
+            }
+                
 	}
 
 }

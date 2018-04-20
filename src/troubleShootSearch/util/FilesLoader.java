@@ -23,6 +23,7 @@ public class FilesLoader {
     public List<String> loadInputs(String file){
         fileProcessor.setFileName(file);
         fileProcessor.setCount(0);
+        userInputs.clear();
         String str = fileProcessor.readLine();
         if(str!= null){
                 

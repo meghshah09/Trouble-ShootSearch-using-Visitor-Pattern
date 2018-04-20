@@ -37,7 +37,7 @@ public class ExactMatchVisitor implements SearchAlgorithmsVisitorI {
 	public List<String> search(String problemKeyword, List<String> technicalProblemGuide) {
 		List<String> exactMatchOutput = new ArrayList<String>();
 		for(String string :technicalProblemGuide) {
-	if(string.matches("(.*)([^\\w])("+problemKeyword+")([^\\w])(.*)")){
+                if(string.matches("(.*)" + problemKeyword + "(.*)") || string.matches("(.*)" + problemKeyword) || string.matches(problemKeyword + "(.*)")){
 //		if(string.matches("^problemKeyword$")){
 //		if(string.matches("\\B^"+problemKeyword+"$\\B")){	
 //		if(Pattern.matches("(.*)("+problemKeyword+")(.*)", string)){			

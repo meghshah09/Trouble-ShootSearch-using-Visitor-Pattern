@@ -6,6 +6,7 @@
 package troubleShootSearch.driver;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -16,6 +17,7 @@ import troubleShootSearch.Products.USBProduct;
 import troubleShootSearch.searchAlgorithms.ExactMatchVisitor;
 import troubleShootSearch.searchAlgorithms.NaiveStemmingMatchVisitor;
 import troubleShootSearch.searchAlgorithms.SearchAlgorithmsVisitorI;
+import troubleShootSearch.searchAlgorithms.SemanticMatchVisitor;
 import troubleShootSearch.util.FileProcessor;
 import troubleShootSearch.util.FilesLoader;
 
@@ -30,7 +32,7 @@ public class Driver {
     /**
      * @param args the command line arguments
      */
-   
+    
     public static void main(String[] args) {
         
         if(args.length==1){
@@ -47,27 +49,41 @@ public class Driver {
                 List<String> userSentences = fl.loadInputs(args[0]);
                 
                 HDDProduct hddProduct = new HDDProduct(userSentences);
-                List<String> HDDtechnicalGuide = fl.loadInputs("Product1Guide.txt");
+                FilesLoader fl1 = new FilesLoader(fp);
+                List<String> HDDtechnicalGuide = fl1.loadInputs("Product1Guide.txt");
                 hddProduct.setHDDProductTechnicalGuide(HDDtechnicalGuide);
                 
-        	MediaPlayers mediaPlayers = new MediaPlayers();
-                List<String> mediaPlayerTechnicalGuide = fl.loadInputs("product2Guide.txt");
+        	MediaPlayers mediaPlayers = new MediaPlayers(userSentences);
+                FilesLoader fl2 = new FilesLoader(fp);
+                List<String> mediaPlayerTechnicalGuide = fl2.loadInputs("Product2Guide.txt");
                 mediaPlayers.setMediaPlayerTechnicalGuide(mediaPlayerTechnicalGuide);
                 
-                SSDProduct ssdProduct = new SSDProduct();
-                List<String> SSDtechnicalGuide = fl.loadInputs("product3Guide.txt");
+                SSDProduct ssdProduct = new SSDProduct(userSentences);
+                FilesLoader fl3 = new FilesLoader(fp);
+                List<String> SSDtechnicalGuide = fl3.loadInputs("Product3Guide.txt");
                 ssdProduct.setSSDProductTechnicalGuide(SSDtechnicalGuide);
                 
-                USBProduct usbProduct = new USBProduct();
-                List<String> USBtechnicalGuide = fl.loadInputs("product4Guide.txt");
+                USBProduct usbProduct = new USBProduct(userSentences);
+                FilesLoader fl4 = new FilesLoader(fp);
+                List<String> USBtechnicalGuide = fl4.loadInputs("Product4Guide.txt");
                 usbProduct.setUSBProductTechnicalGuide(USBtechnicalGuide);
 
                 SearchAlgorithmsVisitorI exactMatch = new ExactMatchVisitor();
-                
-                
                 SearchAlgorithmsVisitorI naiveStemmingMatch = new NaiveStemmingMatchVisitor();
+                SearchAlgorithmsVisitorI semanticMatch = new SemanticMatchVisitor();
                 hddProduct.accept(exactMatch);
-                //hddProduct.accept(naiveStemmingMatch);
+                hddProduct.accept(naiveStemmingMatch);
+                /*hddProduct.accept(semanticMatch);*/
+                mediaPlayers.accept(exactMatch);
+               /* mediaPlayers.accept(naiveStemmingMatch);
+                mediaPlayers.accept(semanticMatch);
+                ssdProduct.accept(exactMatch);
+                ssdProduct.accept(naiveStemmingMatch);
+                ssdProduct.accept(semanticMatch);
+                usbProduct.accept(exactMatch);
+                usbProduct.accept(naiveStemmingMatch);
+                usbProduct.accept(semanticMatch);
+                //hddProduct.accept(naiveStemmingMatch);*/
                 /*for(String s : userSentences){
                     System.out.println(s);
                 }*/

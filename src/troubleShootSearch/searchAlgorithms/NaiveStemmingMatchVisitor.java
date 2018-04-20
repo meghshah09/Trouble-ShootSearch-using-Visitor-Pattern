@@ -35,15 +35,15 @@ public class NaiveStemmingMatchVisitor implements SearchAlgorithmsVisitorI{
 	@Override
 	public List<String> search(String problemKeyword, List<String> technicalProblemGuide) {
 		
-		String [] tempArray = problemKeyword.trim().split("\\s+");
+		String [] tempArray = problemKeyword.trim().split(" ");
 		List<String> naiveStemmingMatchOutput = new ArrayList<String>();
 		for(String string: technicalProblemGuide) {
 			if(string.contains(tempArray[0])) {
-			naiveStemmingMatchOutput.add(string);
+                            naiveStemmingMatchOutput.add(string);
 			}
 		}
 		for(String string : naiveStemmingMatchOutput) {
-			System.out.println("NaiveStemmingMatchVisitor "+string);
+			System.out.println("NaiveStemmingMatchVisitor "+ string);
 		}
 		return naiveStemmingMatchOutput;
 	}
