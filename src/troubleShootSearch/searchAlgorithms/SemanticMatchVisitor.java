@@ -7,10 +7,18 @@ import troubleShootSearch.Products.HDDProduct;
 import troubleShootSearch.Products.MediaPlayers;
 import troubleShootSearch.Products.SSDProduct;
 import troubleShootSearch.Products.USBProduct;
+import troubleShootSearch.util.FileProcessor;
+import troubleShootSearch.util.FilesLoader;
 
 public class SemanticMatchVisitor implements SearchAlgorithmsVisitorI{
 	
-	Map<String,String> synonyms = new HashMap<String, String>();
+	private Map<String,List<String>> synonyms;
+        private FilesLoader fl;
+        private FileProcessor fp;
+        public SemanticMatchVisitor(String fileIn, FileProcessor fpIn){
+            fl = new FilesLoader(fpIn);
+            synonyms = fl.loadSynFile(fileIn);
+        }
 	
 	@Override
 	public void visit(HDDProduct hddProduct1) {
@@ -35,21 +43,24 @@ public class SemanticMatchVisitor implements SearchAlgorithmsVisitorI{
 
 	@Override
 	public List<String> search(String problemKeyword, List<String> technicalProblemGuide) {
-		String tempArray[]=problemKeyword.trim().split("\\s+");
+		String tempArray[]=problemKeyword.trim().split(" ");
 		String lastElement=tempArray[tempArray.length-1];
-		String tempSynonyms=null;
+		List <String> tempSynonyms;
 		List<String> semanticMatchOutput = new ArrayList<String>();
 		if(lastElement != null) {
 		tempSynonyms= synonyms.get(lastElement);
-		for(String string: technicalProblemGuide) {
-			if(string.contains(tempSynonyms)) {
-				semanticMatchOutput.add(string);
-			}
-		}
-		
-		}
+                    if(tempSynonyms != null){
+                    for(String s : tempSynonyms){
+                            for(String string: technicalProblemGuide) {
+                                    if(string.contains(s)) {
+                                            semanticMatchOutput.add(string);
+                                    }
+                            }
+                        }
+                    }
+                }
 		for(String string : semanticMatchOutput) {
-			System.out.println(string);
+			System.out.println("Semantic Match : "+ string);
 		}
 		return semanticMatchOutput;
 	}
