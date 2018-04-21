@@ -4,24 +4,19 @@
  * and open the template in the editor.
  */
 package troubleShootSearch.driver;
-
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
-import troubleShootSearch.Products.HDDProduct;
+import troubleShootSearch.Products.DSeagateProducts;
+/*import troubleShootSearch.Products.HDDProduct;
 import troubleShootSearch.Products.MediaPlayers;
 import troubleShootSearch.Products.SSDProduct;
 import troubleShootSearch.Products.USBProduct;
-import troubleShootSearch.searchAlgorithms.ExactMatchVisitor;
+*/import troubleShootSearch.searchAlgorithms.ExactMatchVisitor;
 import troubleShootSearch.searchAlgorithms.NaiveStemmingMatchVisitor;
 import troubleShootSearch.searchAlgorithms.SearchAlgorithmsVisitorI;
 import troubleShootSearch.searchAlgorithms.SemanticMatchVisitor;
 import troubleShootSearch.util.FileProcessor;
 import troubleShootSearch.util.FilesLoader;
-
-
 
 /**
  *
@@ -48,12 +43,34 @@ public class Driver {
                 FilesLoader fl = new FilesLoader(fp);
                 List<String> userSentences = fl.loadInputs(args[0]);
                 
-                HDDProduct hddProduct = new HDDProduct(userSentences);
+                DSeagateProducts dSeagateProducts = new DSeagateProducts(userSentences);
+                FilesLoader fl1 = new FilesLoader(fp);
+                List<String> hddtechnicalGuide = fl1.loadInputs("Product1Guide.txt");
+                dSeagateProducts.setHDDProductTechnicalGuide(hddtechnicalGuide);
+     /*           FilesLoader fl2 = new FilesLoader(fp);
+                List<String> mediaPlayerTechnicalGuide = fl2.loadInputs("Product2Guide.txt");
+                dSeagateProducts.setMediaPlayerProductTechnicalGuide(mediaPlayerTechnicalGuide);
+                FilesLoader fl3 = new FilesLoader(fp);
+                List<String> SSDtechnicalGuide = fl3.loadInputs("Product3Guide.txt");
+                dSeagateProducts.setSDDProductTechnicalGuide(SSDtechnicalGuide);
+                FilesLoader fl4 = new FilesLoader(fp);
+                List<String> USBtechnicalGuide = fl4.loadInputs("Product4Guide.txt");
+                dSeagateProducts.setUSBProductTechnicalGuide(USBtechnicalGuide);
+*/
+                SearchAlgorithmsVisitorI exactMatch = new ExactMatchVisitor();
+                SearchAlgorithmsVisitorI naiveStemmingMatch = new NaiveStemmingMatchVisitor();
+ //               SearchAlgorithmsVisitorI semanticMatch = new SemanticMatchVisitor("synonym.txt",fp);
+               
+                dSeagateProducts.accept(exactMatch);
+                dSeagateProducts.accept(naiveStemmingMatch);
+  //              dSeagateProducts.accept(semanticMatch);
+                
+/*                HDDProduct hddProduct = new HDDProduct(userSentences);
                 FilesLoader fl1 = new FilesLoader(fp);
                 List<String> HDDtechnicalGuide = fl1.loadInputs("Product1Guide.txt");
                 hddProduct.setHDDProductTechnicalGuide(HDDtechnicalGuide);
                 
-        	MediaPlayers mediaPlayers = new MediaPlayers(userSentences);
+                MediaPlayers mediaPlayers = new MediaPlayers(userSentences);
                 FilesLoader fl2 = new FilesLoader(fp);
                 List<String> mediaPlayerTechnicalGuide = fl2.loadInputs("Product2Guide.txt");
                 mediaPlayers.setMediaPlayerTechnicalGuide(mediaPlayerTechnicalGuide);
@@ -67,11 +84,8 @@ public class Driver {
                 FilesLoader fl4 = new FilesLoader(fp);
                 List<String> USBtechnicalGuide = fl4.loadInputs("Product4Guide.txt");
                 usbProduct.setUSBProductTechnicalGuide(USBtechnicalGuide);
-
-                SearchAlgorithmsVisitorI exactMatch = new ExactMatchVisitor();
-                SearchAlgorithmsVisitorI naiveStemmingMatch = new NaiveStemmingMatchVisitor();
-                SearchAlgorithmsVisitorI semanticMatch = new SemanticMatchVisitor("synonym.txt",fp);
-                hddProduct.accept(exactMatch);
+*/
+/*                hddProduct.accept(exactMatch);
                 hddProduct.accept(naiveStemmingMatch);
                 hddProduct.accept(semanticMatch);
                 mediaPlayers.accept(exactMatch);
@@ -83,8 +97,7 @@ public class Driver {
                 usbProduct.accept(exactMatch);
                 usbProduct.accept(naiveStemmingMatch);
                 usbProduct.accept(semanticMatch);
-
-                /*for(String s : userSentences){
+*/ /*for(String s : userSentences){
                     System.out.println(s);
                 }*/
                 
