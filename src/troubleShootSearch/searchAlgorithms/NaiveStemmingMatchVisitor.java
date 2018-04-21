@@ -3,11 +3,7 @@ package troubleShootSearch.searchAlgorithms;
 import java.util.ArrayList;
 import java.util.List;
 
-import troubleShootSearch.Products.DSeagateProducts;/*
-import troubleShootSearch.Products.HDDProduct;
-import troubleShootSearch.Products.MediaPlayers;
-import troubleShootSearch.Products.SSDProduct;
-import troubleShootSearch.Products.USBProduct;*/
+import troubleShootSearch.Products.DSeagateProducts;
 
 public class NaiveStemmingMatchVisitor implements SearchAlgorithmsVisitorI{
 	List<String> technicalProblemGuideForHDDProduct;
@@ -31,27 +27,6 @@ public class NaiveStemmingMatchVisitor implements SearchAlgorithmsVisitorI{
 
 	}
 
-	/*@Override
-	public void visit(HDDProduct hddProduct1) {
-		List<String> technicalProblemGuide = hddProduct1.getHDDProductTechnicalGuide();
-		this.search(hddProduct1.getProblemKeyword(), technicalProblemGuide);
-	}	
-	@Override
-	public void visit(MediaPlayers mediaPlayers) {
-		List<String> technicalProblemGuide = mediaPlayers.getMediaPlayerTechnicalGuide();
-		this.search(mediaPlayers.getProblemKeyword(), technicalProblemGuide);
-	}	
-	@Override
-	public void visit(SSDProduct sddProduct) {
-		List<String> technicalProblemGuide = sddProduct.getSSDProductTechnicalGuide();
-		this.search(sddProduct.getProblemKeyword(), technicalProblemGuide);
-	}	
-	@Override
-	public void visit(USBProduct usbProduct) {
-		List<String> technicalProblemGuide = usbProduct.getUSBProductTechnicalGuide();
-		this.search(usbProduct.getProblemKeyword(), technicalProblemGuide);
-	}	
-	 */
 
 	@Override
 	public List<String> search(String problemKeyword, List<String> technicalProblemGuide) {
@@ -66,7 +41,7 @@ public class NaiveStemmingMatchVisitor implements SearchAlgorithmsVisitorI{
 			}
 		}
 		for(String string : naiveStemmingMatchOutput) {
-			System.out.println("NaiveStemmingMatchVisitor: "+ string);
+			System.out.println("Problem Keyword: "+ problemKeyword + " & Naive Stemming Match Visitor Search: "+ string);
 		}
 		return naiveStemmingMatchOutput;
 	}

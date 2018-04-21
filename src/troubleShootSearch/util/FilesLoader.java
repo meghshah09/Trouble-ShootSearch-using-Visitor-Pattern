@@ -9,11 +9,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 /**
  *
- * @author Megh Shah
+ * @author Megh Shah & Shashwat Maru
  */
 public class FilesLoader {
     
@@ -56,7 +55,7 @@ public class FilesLoader {
                 
                 while(str !=null){
                     String [] arr = str.split(":");
-                    String [] list = arr[1].split(" ");
+                    String [] list = arr[1].trim().split(" ");
                     List <String> temp = new ArrayList<String>();
                     for(String s :list)
                         temp.add(s);

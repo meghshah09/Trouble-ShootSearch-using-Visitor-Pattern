@@ -2,6 +2,10 @@ package troubleShootSearch.util;
 
 import troubleShootSearch.enums.DebugLevel;
 
+/**
+ * @author Megh Shah & Shashwat Maru
+ *
+ */
 public class Logger {
 	 // FIXME: Add more enum values as needed for the assignment
 //    public static enum DebugLevel { CONSTRUCTOR, FILE_PROCESSOR, NONE

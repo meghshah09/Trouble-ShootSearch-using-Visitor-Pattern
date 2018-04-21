@@ -12,7 +12,7 @@ import java.io.IOException;
 
 /**
  *
- * @author Megh Shah
+ * @author Megh Shah & Shashwat Maru
  */
 public class Results implements FileDisplayInterface,StdoutDisplayInterface {
 

@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Megh Shah
+ * @author Megh Shah & Shashwat Maru
  */
 public class FileProcessor {
     

@@ -2,6 +2,10 @@ package troubleShootSearch.Products;
 import java.util.List;
 import troubleShootSearch.searchAlgorithms.SearchAlgorithmsVisitorI;
 
+/**
+ * @author Megh Shah & Shashwat Maru
+ *
+ */
 public class DSeagateProducts implements ProductsI{
 	private List<String> hddProductTechnicalGuide;
 	private List<String> sddProductTechnicalGuide;
@@ -21,6 +25,8 @@ public class DSeagateProducts implements ProductsI{
 			searchAlgorithmsVisitorI.visit(this);
 		}
 	}
+	
+	
 	public List<String> getHDDProductTechnicalGuide() {
 		return hddProductTechnicalGuide;
 	}

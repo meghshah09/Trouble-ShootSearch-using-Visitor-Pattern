@@ -1,3 +1,6 @@
-You can only install application
-If Shashwat has a problem detecting the drive, it could be that the portable drive is not receiving enough power
-You can only install application via Processor in Hard Disk
+Hard Disk Drive is full, please remove files from extended storage device.
+To read data from HDD drive, kindly format HDD once and check again.
+HDD quick read rate factor can be increased by selecting boost power option present by selecting it in  the settings menu of the computer.
+In HDD, to make application running with high speed, Kindly close unneccesary application from Task Manager.
+For HDD disk sound problem, kindly restart your PC once, if the problem still persist, please visit near by dSeagate outlet.
+HDD older drives can be replaced and new can be buy from any nearest dSeagate outlet

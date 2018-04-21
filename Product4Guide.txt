@@ -1,0 +1,5 @@
+While copying an app from USB, Select install location to program files folder in C directory.
+Check USB has connected properly, if writing data to system is not done properly.
+Copying to USB from system may have slow transfer rate, To remove this problem download dSeagate data transfer boost application.
+USB not detecting, Kindly re-insert into system.
+In the File Download dialog box, click Run or Open, and then follow the steps in the Windows USB Troubleshooter .
