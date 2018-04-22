@@ -1,5 +1,9 @@
 package troubleShootSearch.Products;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import troubleShootSearch.searchAlgorithms.SearchAlgorithmsVisitorI;
 
 /**
@@ -13,9 +17,13 @@ public class DSeagateProducts implements ProductsI{
 	private List<String> mediaPlayerProductTechnicalGuide;
 	private String problemKeyword;
 	private List<String> inputs;
+ //   private List<List<String>> listOfTechnicalGuide;
+    private Map<String,List<String>> mapOfTechnicalGuide;
     
 	public DSeagateProducts(List<String> userSentencesIn) {
 		setInputs(userSentencesIn);
+//		listOfTechnicalGuide = new ArrayList<List<String>>();
+		mapOfTechnicalGuide = new HashMap<String, List<String>>();
 	}
 	
 	@Override
@@ -63,6 +71,24 @@ public class DSeagateProducts implements ProductsI{
 	public void setMediaPlayerProductTechnicalGuide(List<String> mediaPlayerProductTechnicalGuideIn) {
 		mediaPlayerProductTechnicalGuide = mediaPlayerProductTechnicalGuideIn;
 	}
+
+/*	public List<List<String>> getListOfTechnicalGuide() {
+		return listOfTechnicalGuide;
+	}
+
+	public void setListOfTechnicalGuide(List<List<String>> list) {
+		this.listOfTechnicalGuide = list;
+	}
+*/
+	public Map<String,List<String>> getMapOfTechnicalGuide() {
+		return mapOfTechnicalGuide;
+	}
+
+	public void setMapOfTechnicalGuide(Map<String,List<String>> mapOfTechnicalGuide) {
+		this.mapOfTechnicalGuide = mapOfTechnicalGuide;
+	}
+
+
 	
 
 }

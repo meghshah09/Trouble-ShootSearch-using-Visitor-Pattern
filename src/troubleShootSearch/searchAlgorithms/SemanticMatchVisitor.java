@@ -2,6 +2,7 @@ package troubleShootSearch.searchAlgorithms;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import troubleShootSearch.Products.DSeagateProducts;
 import troubleShootSearch.util.FileProcessor;
@@ -11,30 +12,39 @@ public class SemanticMatchVisitor implements SearchAlgorithmsVisitorI{
 
 	private Map<String,List<String>> synonyms;
 	private FilesLoader fl;
-	private FileProcessor fp;
+	//	private FileProcessor fp;
 	public SemanticMatchVisitor(String fileIn, FileProcessor fpIn){
 		fl = new FilesLoader(fpIn);
 		synonyms = fl.loadSynFile(fileIn);
 	}
-	List<String> technicalProblemGuideForHDDProduct;
+	/*	List<String> technicalProblemGuideForHDDProduct;
 	List<String> technicalProblemGuideForSDDProduct;
 	List<String> technicalProblemGuideForUSBProduct;
 	List<String> technicalProblemGuideForMediaPlayerProduct;
-
+	 */
 	@Override
 	public void visit(DSeagateProducts dSeagateProducts) {
+
+		Set<String> s = dSeagateProducts.getMapOfTechnicalGuide().keySet();
+		for(String technicalGuideIterator: s) {
+			search(dSeagateProducts.getProblemKeyword(), dSeagateProducts.getMapOfTechnicalGuide().get(technicalGuideIterator));
+		}
+
+		/*for(List<String> technicalGuide: dSeagateProducts.getListOfTechnicalGuide()) {
+			search(dSeagateProducts.getProblemKeyword(), technicalGuide);
+		}*//*
 		technicalProblemGuideForHDDProduct = dSeagateProducts.getHDDProductTechnicalGuide();
-		this.search(dSeagateProducts.getProblemKeyword(), technicalProblemGuideForHDDProduct);
+		search(dSeagateProducts.getProblemKeyword(), technicalProblemGuideForHDDProduct);
 
 		technicalProblemGuideForSDDProduct = dSeagateProducts.getSDDProductTechnicalGuide();
-		this.search(dSeagateProducts.getProblemKeyword(), technicalProblemGuideForSDDProduct);
+		search(dSeagateProducts.getProblemKeyword(), technicalProblemGuideForSDDProduct);
 
 		technicalProblemGuideForUSBProduct = dSeagateProducts.getUSBProductTechnicalGuide();
-		this.search(dSeagateProducts.getProblemKeyword(), technicalProblemGuideForUSBProduct);
+		search(dSeagateProducts.getProblemKeyword(), technicalProblemGuideForUSBProduct);
 
 		technicalProblemGuideForMediaPlayerProduct = dSeagateProducts.getMediaPlayerProductTechnicalGuide();
-		this.search(dSeagateProducts.getProblemKeyword(), technicalProblemGuideForMediaPlayerProduct);
-
+		search(dSeagateProducts.getProblemKeyword(), technicalProblemGuideForMediaPlayerProduct);
+		 */
 	}
 
 	@Override
@@ -51,7 +61,8 @@ public class SemanticMatchVisitor implements SearchAlgorithmsVisitorI{
 					replaceProblemKeyword = problemKeyword.replace(lastElement, s);
 					if(technicalProblemGuide != null) {
 						for(String string: technicalProblemGuide) {
-							if(string.matches("(.*)" + replaceProblemKeyword + "(.*)") || string.matches("(.*)" + replaceProblemKeyword) || string.matches(replaceProblemKeyword + "(.*)")){
+							//			if(string.matches("(.*)" + replaceProblemKeyword + "(.*)") || string.matches("(.*)" + replaceProblemKeyword) || string.matches(replaceProblemKeyword + "(.*)")){
+							if(string.matches("(.*)(\\A|[^\\w])(" + replaceProblemKeyword + ")(\\Z|[^\\w])(.*)")) {
 								semanticMatchOutput.add(string);
 							}
 						}

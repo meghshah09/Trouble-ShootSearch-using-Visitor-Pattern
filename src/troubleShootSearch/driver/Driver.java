@@ -24,6 +24,9 @@ public class Driver {
 	 * @param args the command line arguments
 	 */
 
+	/**
+	 * @param args
+	 */
 	public static void main(String[] args) {
 
 		if(args.length==1){
@@ -43,6 +46,7 @@ public class Driver {
 			FilesLoader fl1 = new FilesLoader(fp);
 			List<String> hddtechnicalGuide = fl1.loadInputs("Product1Guide.txt");
 			dSeagateProducts.setHDDProductTechnicalGuide(hddtechnicalGuide);
+			
 			FilesLoader fl2 = new FilesLoader(fp);
 			List<String> mediaPlayerTechnicalGuide = fl2.loadInputs("Product2Guide.txt");
 			dSeagateProducts.setMediaPlayerProductTechnicalGuide(mediaPlayerTechnicalGuide);
@@ -53,6 +57,16 @@ public class Driver {
 			List<String> USBtechnicalGuide = fl4.loadInputs("Product4Guide.txt");
 			dSeagateProducts.setUSBProductTechnicalGuide(USBtechnicalGuide);
 
+/*			dSeagateProducts.getListOfTechnicalGuide().add(dSeagateProducts.getHDDProductTechnicalGuide());
+			dSeagateProducts.getListOfTechnicalGuide().add(dSeagateProducts.getSDDProductTechnicalGuide());
+			dSeagateProducts.getListOfTechnicalGuide().add(dSeagateProducts.getUSBProductTechnicalGuide());
+			dSeagateProducts.getListOfTechnicalGuide().add(dSeagateProducts.getMediaPlayerProductTechnicalGuide());
+*/				
+			dSeagateProducts.getMapOfTechnicalGuide().put("hddProduct", dSeagateProducts.getHDDProductTechnicalGuide());
+			dSeagateProducts.getMapOfTechnicalGuide().put("sddProduct", dSeagateProducts.getSDDProductTechnicalGuide());
+			dSeagateProducts.getMapOfTechnicalGuide().put("usbProduct", dSeagateProducts.getUSBProductTechnicalGuide());
+			dSeagateProducts.getMapOfTechnicalGuide().put("mediaPlayerProduct", dSeagateProducts.getMediaPlayerProductTechnicalGuide());
+			
 			SearchAlgorithmsVisitorI exactMatch = new ExactMatchVisitor();
 			SearchAlgorithmsVisitorI naiveStemmingMatch = new NaiveStemmingMatchVisitor();
 			SearchAlgorithmsVisitorI semanticMatch = new SemanticMatchVisitor("synonyms.txt",fp);

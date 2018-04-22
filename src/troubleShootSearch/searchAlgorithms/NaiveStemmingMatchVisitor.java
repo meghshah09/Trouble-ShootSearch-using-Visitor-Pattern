@@ -2,29 +2,42 @@ package troubleShootSearch.searchAlgorithms;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import troubleShootSearch.Products.DSeagateProducts;
 
 public class NaiveStemmingMatchVisitor implements SearchAlgorithmsVisitorI{
-	List<String> technicalProblemGuideForHDDProduct;
+	/*List<String> technicalProblemGuideForHDDProduct;
 	List<String> technicalProblemGuideForSDDProduct;
 	List<String> technicalProblemGuideForUSBProduct;
 	List<String> technicalProblemGuideForMediaPlayerProduct;
-
+	*/
+	
 	@Override
 	public void visit(DSeagateProducts dSeagateProducts) {
+	/*	for(List<String> technicalGuide: dSeagateProducts.getListOfTechnicalGuide()) {
+			search(dSeagateProducts.getProblemKeyword(), technicalGuide);
+		}
+	*/	
+		Set<String> s = dSeagateProducts.getMapOfTechnicalGuide().keySet();
+		for(String technicalGuideIterator: s) {
+			search(dSeagateProducts.getProblemKeyword(), dSeagateProducts.getMapOfTechnicalGuide().get(technicalGuideIterator));
+		}
+
+		
+		/*
 		technicalProblemGuideForHDDProduct = dSeagateProducts.getHDDProductTechnicalGuide();
-		this.search(dSeagateProducts.getProblemKeyword(), technicalProblemGuideForHDDProduct);
+		search(dSeagateProducts.getProblemKeyword(), technicalProblemGuideForHDDProduct);
 
 		technicalProblemGuideForSDDProduct = dSeagateProducts.getSDDProductTechnicalGuide();
-		this.search(dSeagateProducts.getProblemKeyword(), technicalProblemGuideForSDDProduct);
+		search(dSeagateProducts.getProblemKeyword(), technicalProblemGuideForSDDProduct);
 
 		technicalProblemGuideForUSBProduct = dSeagateProducts.getUSBProductTechnicalGuide();
-		this.search(dSeagateProducts.getProblemKeyword(), technicalProblemGuideForUSBProduct);
+		search(dSeagateProducts.getProblemKeyword(), technicalProblemGuideForUSBProduct);
 
 		technicalProblemGuideForMediaPlayerProduct = dSeagateProducts.getMediaPlayerProductTechnicalGuide();
-		this.search(dSeagateProducts.getProblemKeyword(), technicalProblemGuideForMediaPlayerProduct);
-
+		search(dSeagateProducts.getProblemKeyword(), technicalProblemGuideForMediaPlayerProduct);
+		 */
 	}
 
 

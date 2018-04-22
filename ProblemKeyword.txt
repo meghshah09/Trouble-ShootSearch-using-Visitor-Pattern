@@ -5,10 +5,10 @@ system storage
 install application
 format HDD
 install location
-write data
+copy data
 slow transfer
 data transfer crash
-Learn more
+learn more
 download disk repair
 detect error
 click sound
@@ -20,7 +20,7 @@ issue with sound magnitute
 compatible CPU
 USB compatibility fix
 replace the SATA wire
-Receive a refund
+get a refund
 replace old hard drives
 updating the software
 alot of errors
