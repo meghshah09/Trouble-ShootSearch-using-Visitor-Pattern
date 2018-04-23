@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import troubleShootSearch.searchAlgorithms.SearchAlgorithmsVisitorI;
+import troubleShootSearch.util.Results;
 
 /**
  * @author Megh Shah & Shashwat Maru
@@ -17,18 +18,20 @@ public class DSeagateProducts implements ProductsI{
 	private List<String> mediaPlayerProductTechnicalGuide;
 	private String problemKeyword;
 	private List<String> inputs;
- //   private List<List<String>> listOfTechnicalGuide;
-    private Map<String,List<String>> mapOfTechnicalGuide;
-    
-	public DSeagateProducts(List<String> userSentencesIn) {
+                    private Map<String,List<String>> mapOfTechnicalGuide;
+                    private Results result;
+	public DSeagateProducts(List<String> userSentencesIn,Results rIn) {
 		setInputs(userSentencesIn);
-//		listOfTechnicalGuide = new ArrayList<List<String>>();
+
 		mapOfTechnicalGuide = new HashMap<String, List<String>>();
+                                        result = rIn;
 	}
 	
 	@Override
 	public void accept(SearchAlgorithmsVisitorI searchAlgorithmsVisitorI) {
 		for(String s :inputs){
+                                                            result.fileDisplay("\nProblem Keyword : "+s);
+                                                            result.stdoutDisplay("\nProblem Keyword : "+s);
 			this.setProblemKeyword(s);
 			searchAlgorithmsVisitorI.visit(this);
 		}
@@ -72,14 +75,6 @@ public class DSeagateProducts implements ProductsI{
 		mediaPlayerProductTechnicalGuide = mediaPlayerProductTechnicalGuideIn;
 	}
 
-/*	public List<List<String>> getListOfTechnicalGuide() {
-		return listOfTechnicalGuide;
-	}
-
-	public void setListOfTechnicalGuide(List<List<String>> list) {
-		this.listOfTechnicalGuide = list;
-	}
-*/
 	public Map<String,List<String>> getMapOfTechnicalGuide() {
 		return mapOfTechnicalGuide;
 	}

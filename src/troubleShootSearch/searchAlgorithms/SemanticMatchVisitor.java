@@ -7,44 +7,29 @@ import java.util.Set;
 import troubleShootSearch.Products.DSeagateProducts;
 import troubleShootSearch.util.FileProcessor;
 import troubleShootSearch.util.FilesLoader;
+import troubleShootSearch.util.Results;
 
 public class SemanticMatchVisitor implements SearchAlgorithmsVisitorI{
 
 	private Map<String,List<String>> synonyms;
 	private FilesLoader fl;
-	//	private FileProcessor fp;
-	public SemanticMatchVisitor(String fileIn, FileProcessor fpIn){
+                    private Results result;
+	public SemanticMatchVisitor(String fileIn, FileProcessor fpIn,Results rIn){
 		fl = new FilesLoader(fpIn);
 		synonyms = fl.loadSynFile(fileIn);
+                                           result=rIn;
 	}
-	/*	List<String> technicalProblemGuideForHDDProduct;
-	List<String> technicalProblemGuideForSDDProduct;
-	List<String> technicalProblemGuideForUSBProduct;
-	List<String> technicalProblemGuideForMediaPlayerProduct;
-	 */
+
 	@Override
 	public void visit(DSeagateProducts dSeagateProducts) {
 
 		Set<String> s = dSeagateProducts.getMapOfTechnicalGuide().keySet();
 		for(String technicalGuideIterator: s) {
+                                                             result.fileDisplay(technicalGuideIterator +" : ");
+                                                               result.stdoutDisplay(technicalGuideIterator +" : ");
 			search(dSeagateProducts.getProblemKeyword(), dSeagateProducts.getMapOfTechnicalGuide().get(technicalGuideIterator));
 		}
 
-		/*for(List<String> technicalGuide: dSeagateProducts.getListOfTechnicalGuide()) {
-			search(dSeagateProducts.getProblemKeyword(), technicalGuide);
-		}*//*
-		technicalProblemGuideForHDDProduct = dSeagateProducts.getHDDProductTechnicalGuide();
-		search(dSeagateProducts.getProblemKeyword(), technicalProblemGuideForHDDProduct);
-
-		technicalProblemGuideForSDDProduct = dSeagateProducts.getSDDProductTechnicalGuide();
-		search(dSeagateProducts.getProblemKeyword(), technicalProblemGuideForSDDProduct);
-
-		technicalProblemGuideForUSBProduct = dSeagateProducts.getUSBProductTechnicalGuide();
-		search(dSeagateProducts.getProblemKeyword(), technicalProblemGuideForUSBProduct);
-
-		technicalProblemGuideForMediaPlayerProduct = dSeagateProducts.getMediaPlayerProductTechnicalGuide();
-		search(dSeagateProducts.getProblemKeyword(), technicalProblemGuideForMediaPlayerProduct);
-		 */
 	}
 
 	@Override
@@ -71,7 +56,8 @@ public class SemanticMatchVisitor implements SearchAlgorithmsVisitorI{
 			}
 		}
 		for(String string : semanticMatchOutput) {
-			System.out.println("Problem Keyword: "+ problemKeyword + " & Semantic Match Visitor Search: "+ string);
+			result.fileDisplay(string+"\n");
+                                                            result.stdoutDisplay(string+"\n");
 		}
 		return semanticMatchOutput;
 	}

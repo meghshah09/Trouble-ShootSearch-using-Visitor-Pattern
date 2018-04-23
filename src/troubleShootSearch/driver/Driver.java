@@ -13,6 +13,7 @@ import troubleShootSearch.searchAlgorithms.SearchAlgorithmsVisitorI;
 import troubleShootSearch.searchAlgorithms.SemanticMatchVisitor;
 import troubleShootSearch.util.FileProcessor;
 import troubleShootSearch.util.FilesLoader;
+import troubleShootSearch.util.Results;
 
 /**
  *
@@ -23,7 +24,7 @@ public class Driver {
 	/**
 	 * @param args the command line arguments
 	 */
-
+ 
 	/**
 	 * @param args
 	 */
@@ -40,9 +41,11 @@ public class Driver {
 			Scanner scan = new Scanner(System.in);
 			FileProcessor fp = new FileProcessor(scan);
 			FilesLoader fl = new FilesLoader(fp);
+                                                             Results r = new Results();
+                                                             r.openingOutputFile("output.txt");
 			List<String> userSentences = fl.loadInputs(args[0]);
 
-			DSeagateProducts dSeagateProducts = new DSeagateProducts(userSentences);
+			DSeagateProducts dSeagateProducts = new DSeagateProducts(userSentences,r);
 			FilesLoader fl1 = new FilesLoader(fp);
 			List<String> hddtechnicalGuide = fl1.loadInputs("Product1Guide.txt");
 			dSeagateProducts.setHDDProductTechnicalGuide(hddtechnicalGuide);
@@ -56,24 +59,25 @@ public class Driver {
 			FilesLoader fl4 = new FilesLoader(fp);
 			List<String> USBtechnicalGuide = fl4.loadInputs("Product4Guide.txt");
 			dSeagateProducts.setUSBProductTechnicalGuide(USBtechnicalGuide);
-
-/*			dSeagateProducts.getListOfTechnicalGuide().add(dSeagateProducts.getHDDProductTechnicalGuide());
-			dSeagateProducts.getListOfTechnicalGuide().add(dSeagateProducts.getSDDProductTechnicalGuide());
-			dSeagateProducts.getListOfTechnicalGuide().add(dSeagateProducts.getUSBProductTechnicalGuide());
-			dSeagateProducts.getListOfTechnicalGuide().add(dSeagateProducts.getMediaPlayerProductTechnicalGuide());
-*/				
+				
 			dSeagateProducts.getMapOfTechnicalGuide().put("hddProduct", dSeagateProducts.getHDDProductTechnicalGuide());
 			dSeagateProducts.getMapOfTechnicalGuide().put("sddProduct", dSeagateProducts.getSDDProductTechnicalGuide());
 			dSeagateProducts.getMapOfTechnicalGuide().put("usbProduct", dSeagateProducts.getUSBProductTechnicalGuide());
 			dSeagateProducts.getMapOfTechnicalGuide().put("mediaPlayerProduct", dSeagateProducts.getMediaPlayerProductTechnicalGuide());
 			
-			SearchAlgorithmsVisitorI exactMatch = new ExactMatchVisitor();
-			SearchAlgorithmsVisitorI naiveStemmingMatch = new NaiveStemmingMatchVisitor();
-			SearchAlgorithmsVisitorI semanticMatch = new SemanticMatchVisitor("synonyms.txt",fp);
-
+			SearchAlgorithmsVisitorI exactMatch = new ExactMatchVisitor(r);
+			SearchAlgorithmsVisitorI naiveStemmingMatch = new NaiveStemmingMatchVisitor(r);
+			SearchAlgorithmsVisitorI semanticMatch = new SemanticMatchVisitor("synonyms.txt",fp,r);
+                                                            r.fileDisplay("\nPerforming [ Exact Match ] on All Products \n");
+                                                            r.stdoutDisplay("\nPerforming [ Exact Match ] on All Products \n");
 			dSeagateProducts.accept(exactMatch);
+                                                             r.fileDisplay("\nPerforming [ Naive Stemming  Match ] on All Products \n");
+                                                            r.stdoutDisplay("\nPerforming [ Naive Stemming Match ] on All Products \n");
 			dSeagateProducts.accept(naiveStemmingMatch);
+                                                             r.fileDisplay("\nPerforming [ Semantic Match ] on All Products \n");
+                                                            r.stdoutDisplay("\nPerforming [ Semantic Match ] on All Products \n");
 			dSeagateProducts.accept(semanticMatch);
+                                                            r.closeingOutputFile();
 
 
 		}

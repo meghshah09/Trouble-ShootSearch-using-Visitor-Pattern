@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Set;
 
 import troubleShootSearch.Products.DSeagateProducts;
+import troubleShootSearch.util.Results;
 
 public class NaiveStemmingMatchVisitor implements SearchAlgorithmsVisitorI{
 	/*List<String> technicalProblemGuideForHDDProduct;
@@ -12,33 +13,22 @@ public class NaiveStemmingMatchVisitor implements SearchAlgorithmsVisitorI{
 	List<String> technicalProblemGuideForUSBProduct;
 	List<String> technicalProblemGuideForMediaPlayerProduct;
 	*/
-	
-	@Override
-	public void visit(DSeagateProducts dSeagateProducts) {
-	/*	for(List<String> technicalGuide: dSeagateProducts.getListOfTechnicalGuide()) {
-			search(dSeagateProducts.getProblemKeyword(), technicalGuide);
-		}
-	*/	
-		Set<String> s = dSeagateProducts.getMapOfTechnicalGuide().keySet();
-		for(String technicalGuideIterator: s) {
-			search(dSeagateProducts.getProblemKeyword(), dSeagateProducts.getMapOfTechnicalGuide().get(technicalGuideIterator));
-		}
-
-		
-		/*
-		technicalProblemGuideForHDDProduct = dSeagateProducts.getHDDProductTechnicalGuide();
-		search(dSeagateProducts.getProblemKeyword(), technicalProblemGuideForHDDProduct);
-
-		technicalProblemGuideForSDDProduct = dSeagateProducts.getSDDProductTechnicalGuide();
-		search(dSeagateProducts.getProblemKeyword(), technicalProblemGuideForSDDProduct);
-
-		technicalProblemGuideForUSBProduct = dSeagateProducts.getUSBProductTechnicalGuide();
-		search(dSeagateProducts.getProblemKeyword(), technicalProblemGuideForUSBProduct);
-
-		technicalProblemGuideForMediaPlayerProduct = dSeagateProducts.getMediaPlayerProductTechnicalGuide();
-		search(dSeagateProducts.getProblemKeyword(), technicalProblemGuideForMediaPlayerProduct);
-		 */
+	private Results result;
+	public NaiveStemmingMatchVisitor(Results rIn) {
+                            result = rIn;
 	}
+
+    @Override
+    public void visit(DSeagateProducts dSeagateProducts) {
+
+        Set<String> s = dSeagateProducts.getMapOfTechnicalGuide().keySet();
+        for(String technicalGuideIterator: s) {
+              result.fileDisplay(technicalGuideIterator +" : ");
+               result.stdoutDisplay(technicalGuideIterator +" : ");
+            search(dSeagateProducts.getProblemKeyword(), dSeagateProducts.getMapOfTechnicalGuide().get(technicalGuideIterator));
+        }
+
+    }
 
 
 	@Override
@@ -54,7 +44,8 @@ public class NaiveStemmingMatchVisitor implements SearchAlgorithmsVisitorI{
 			}
 		}
 		for(String string : naiveStemmingMatchOutput) {
-			System.out.println("Problem Keyword: "+ problemKeyword + " & Naive Stemming Match Visitor Search: "+ string);
+			result.fileDisplay(string+"\n");
+                                                            result.stdoutDisplay(string+"\n");
 		}
 		return naiveStemmingMatchOutput;
 	}

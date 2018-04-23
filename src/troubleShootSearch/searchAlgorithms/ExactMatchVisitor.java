@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Set;
 
 import troubleShootSearch.Products.DSeagateProducts;
+import troubleShootSearch.util.Results;
 
 public class ExactMatchVisitor implements SearchAlgorithmsVisitorI {
 /*	List<String> technicalProblemGuideForHDDProduct;
@@ -14,30 +15,23 @@ public class ExactMatchVisitor implements SearchAlgorithmsVisitorI {
 	List<String> technicalProblemGuideForUSBProduct;
 	List<String> technicalProblemGuideForMediaPlayerProduct;
 */
-	@Override
-	public void visit(DSeagateProducts dSeagateProducts) {
-		/*for(List<String> technicalGuide: dSeagateProducts.getListOfTechnicalGuide()) {
-			search(dSeagateProducts.getProblemKeyword(), technicalGuide);
-		}*/
-
-		Set<String> s = dSeagateProducts.getMapOfTechnicalGuide().keySet();
-		for(String technicalGuideIterator: s) {
-			search(dSeagateProducts.getProblemKeyword(), dSeagateProducts.getMapOfTechnicalGuide().get(technicalGuideIterator));
-		}
-		
-		/*		technicalProblemGuideForHDDProduct = dSeagateProducts.getHDDProductTechnicalGuide();
-		search(dSeagateProducts.getProblemKeyword(), technicalProblemGuideForHDDProduct);
-
-		technicalProblemGuideForSDDProduct = dSeagateProducts.getSDDProductTechnicalGuide();
-		search(dSeagateProducts.getProblemKeyword(), technicalProblemGuideForSDDProduct);
-
-		technicalProblemGuideForUSBProduct = dSeagateProducts.getUSBProductTechnicalGuide();
-		search(dSeagateProducts.getProblemKeyword(), technicalProblemGuideForUSBProduct);
-
-		technicalProblemGuideForMediaPlayerProduct = dSeagateProducts.getMediaPlayerProductTechnicalGuide();
-		search(dSeagateProducts.getProblemKeyword(), technicalProblemGuideForMediaPlayerProduct);
-		 */
+                    private Results result;
+	public ExactMatchVisitor(Results rIn) {
+                            result = rIn;
 	}
+
+                    @Override
+                    public void visit(DSeagateProducts dSeagateProducts) {
+
+                        Set<String> s = dSeagateProducts.getMapOfTechnicalGuide().keySet();
+                        for(String technicalGuideIterator: s) {
+                             result.fileDisplay(technicalGuideIterator +" : ");
+                             result.stdoutDisplay(technicalGuideIterator +" : ");
+                            search(dSeagateProducts.getProblemKeyword(), dSeagateProducts.getMapOfTechnicalGuide().get(technicalGuideIterator));
+
+                        }
+
+                    }
 
 
 	@Override
@@ -52,7 +46,8 @@ public class ExactMatchVisitor implements SearchAlgorithmsVisitorI {
 			}
 		}
 		for(String string : exactMatchOutput) {
-			System.out.println("Problem Keyword: "+ problemKeyword + "  & ExactMatchVisitor Search: "+string);
+			result.fileDisplay(string+"\n");
+                                                            result.stdoutDisplay(string+"\n");
 		}
 		return exactMatchOutput;
 	}
