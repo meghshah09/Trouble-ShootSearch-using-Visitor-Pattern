@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import troubleShootSearch.enums.DebugLevel;
 
 /**
  *
@@ -19,6 +20,7 @@ public class FileProcessor {
     
     private String fileName;
     private Scanner scan;
+    private Logger log;
     private final List<String> fileData = new ArrayList<>();
     private File file;
     private int count;
@@ -63,8 +65,10 @@ public class FileProcessor {
      * 
      * @param scanIn - parameterized constructor that sets the constructor.
      */
-    public FileProcessor(Scanner scanIn){
+    public FileProcessor(Scanner scanIn,Logger logIn){
         this.scan = scanIn;
+        log= logIn;
+        log.writeMessage("In File Processor Constructor ", DebugLevel.CONSTRUCTOR);
     }
     
     /*public void open(){
@@ -98,12 +102,12 @@ public class FileProcessor {
         
         }
         else{
-            System.out.println(this.getFileName()+" File does not exist");
+          log.writeMessage(this.getFileName()+" File does not exist", DebugLevel.NONE );
             System.exit(0);
         }
        }catch(IOException e){
         //System.out.println("exception"); 
-        System.out.println(this.getFileName()+" File does not exist");
+            log.writeMessage(this.getFileName()+" File does not exist", DebugLevel.NONE );
             System.exit(0);
        }
        finally{
@@ -130,9 +134,9 @@ public void close(){
     try{
         scan.close();
     }catch(Exception e){
-        System.out.println("Cannot close the File");
-        System.out.println("Exiting....");
-        System.exit(0);
+         log.writeMessage("Cannot close the File", DebugLevel.NONE );
+         log.writeMessage("Exiting....", DebugLevel.NONE );
+        System.exit(0); 
     }
 }
 

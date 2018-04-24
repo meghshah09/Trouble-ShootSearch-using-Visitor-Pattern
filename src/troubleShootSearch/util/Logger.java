@@ -7,32 +7,31 @@ import troubleShootSearch.enums.DebugLevel;
  *
  */
 public class Logger {
-	 // FIXME: Add more enum values as needed for the assignment
-//    public static enum DebugLevel { CONSTRUCTOR, FILE_PROCESSOR, NONE
- //                                  };
 
     private static DebugLevel debugLevel;
     // FIXME: Add switch cases for all the levels
-    public static void setDebugValue (int levelIn) {
+    public  void setDebugValue (int levelIn) {
 	switch (levelIn) {
-	case 4: debugLevel = DebugLevel.SEARCH;
+	case 4: debugLevel = DebugLevel.SEARCHSTRATEGY;
 			break;
 	case 3: debugLevel = DebugLevel.PRODUCTS;
 			break;
 	case 2: debugLevel = DebugLevel.CONSTRUCTOR;
 			break;
-	case 1: debugLevel = DebugLevel.FILE_PROCESSOR;
+	case 1: debugLevel = DebugLevel.SEARCH;
 			break;
+                    case 0: debugLevel = DebugLevel.NONE;
+                                                            break;
 	default: debugLevel = DebugLevel.NONE;
 			break;
 	}
     }
 
-    public static void setDebugValue (DebugLevel levelIn) {
+    public  void setDebugValue (DebugLevel levelIn) {
 	debugLevel = levelIn;
     }
 
-    public static void writeMessage (String     message  ,
+    public  void writeMessage (String     message  ,
                                      DebugLevel levelIn ) {
 	if (levelIn == debugLevel)
 	    System.out.println(message);

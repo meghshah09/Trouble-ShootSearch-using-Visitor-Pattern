@@ -13,6 +13,7 @@ import troubleShootSearch.searchAlgorithms.SearchAlgorithmsVisitorI;
 import troubleShootSearch.searchAlgorithms.SemanticMatchVisitor;
 import troubleShootSearch.util.FileProcessor;
 import troubleShootSearch.util.FilesLoader;
+import troubleShootSearch.util.Logger;
 import troubleShootSearch.util.Results;
 
 /**
@@ -30,7 +31,7 @@ public class Driver {
 	 */
 	public static void main(String[] args) {
 
-		if(args.length==1){
+		if(args.length==2){
 			System.out.println("================================================");
 			System.out.println("            Trouble Shoot Seacrh             ");
 			System.out.println("================================================");
@@ -39,24 +40,26 @@ public class Driver {
 			System.out.println("Trying to See Search from the given input file : "+ args[0]+" given.....");
 			System.out.println("");
 			Scanner scan = new Scanner(System.in);
-			FileProcessor fp = new FileProcessor(scan);
-			FilesLoader fl = new FilesLoader(fp);
+                                                            Logger log = new Logger();
+                                                             log.setDebugValue(Integer.parseInt(args[1]));
+			FileProcessor fp = new FileProcessor(scan,log);
+			FilesLoader fl = new FilesLoader(fp,log);
                                                              Results r = new Results();
                                                              r.openingOutputFile("output.txt");
 			List<String> userSentences = fl.loadInputs(args[0]);
 
-			DSeagateProducts dSeagateProducts = new DSeagateProducts(userSentences,r);
-			FilesLoader fl1 = new FilesLoader(fp);
+			DSeagateProducts dSeagateProducts = new DSeagateProducts(userSentences,r,log);
+			FilesLoader fl1 = new FilesLoader(fp,log);
 			List<String> hddtechnicalGuide = fl1.loadInputs("Product1Guide.txt");
 			dSeagateProducts.setHDDProductTechnicalGuide(hddtechnicalGuide);
 			
-			FilesLoader fl2 = new FilesLoader(fp);
+			FilesLoader fl2 = new FilesLoader(fp,log);
 			List<String> mediaPlayerTechnicalGuide = fl2.loadInputs("Product2Guide.txt");
 			dSeagateProducts.setMediaPlayerProductTechnicalGuide(mediaPlayerTechnicalGuide);
-			FilesLoader fl3 = new FilesLoader(fp);
+			FilesLoader fl3 = new FilesLoader(fp,log);
 			List<String> SSDtechnicalGuide = fl3.loadInputs("Product3Guide.txt");
 			dSeagateProducts.setSDDProductTechnicalGuide(SSDtechnicalGuide);
-			FilesLoader fl4 = new FilesLoader(fp);
+			FilesLoader fl4 = new FilesLoader(fp,log);
 			List<String> USBtechnicalGuide = fl4.loadInputs("Product4Guide.txt");
 			dSeagateProducts.setUSBProductTechnicalGuide(USBtechnicalGuide);
 				
@@ -65,9 +68,9 @@ public class Driver {
 			dSeagateProducts.getMapOfTechnicalGuide().put("usbProduct", dSeagateProducts.getUSBProductTechnicalGuide());
 			dSeagateProducts.getMapOfTechnicalGuide().put("mediaPlayerProduct", dSeagateProducts.getMediaPlayerProductTechnicalGuide());
 			
-			SearchAlgorithmsVisitorI exactMatch = new ExactMatchVisitor(r);
-			SearchAlgorithmsVisitorI naiveStemmingMatch = new NaiveStemmingMatchVisitor(r);
-			SearchAlgorithmsVisitorI semanticMatch = new SemanticMatchVisitor("synonyms.txt",fp,r);
+			SearchAlgorithmsVisitorI exactMatch = new ExactMatchVisitor(r,log);
+			SearchAlgorithmsVisitorI naiveStemmingMatch = new NaiveStemmingMatchVisitor(r,log);
+			SearchAlgorithmsVisitorI semanticMatch = new SemanticMatchVisitor("synonyms.txt",fp,r,log);
                                                             r.fileDisplay("\nPerforming [ Exact Match ] on All Products \n");
                                                             r.stdoutDisplay("\nPerforming [ Exact Match ] on All Products \n");
 			dSeagateProducts.accept(exactMatch);
@@ -81,6 +84,10 @@ public class Driver {
 
 
 		}
+                                        else{
+                                                    System.out.println("Not Correct Command line Arguements");
+                                                    System.exit(0);
+                                        }
 	}
 
 }

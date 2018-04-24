@@ -3,8 +3,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import troubleShootSearch.enums.DebugLevel;
 
 import troubleShootSearch.searchAlgorithms.SearchAlgorithmsVisitorI;
+import troubleShootSearch.util.Logger;
 import troubleShootSearch.util.Results;
 
 /**
@@ -20,11 +22,14 @@ public class DSeagateProducts implements ProductsI{
 	private List<String> inputs;
                     private Map<String,List<String>> mapOfTechnicalGuide;
                     private Results result;
-	public DSeagateProducts(List<String> userSentencesIn,Results rIn) {
+                    private Logger log;
+	public DSeagateProducts(List<String> userSentencesIn,Results rIn,Logger logIn) {
 		setInputs(userSentencesIn);
 
 		mapOfTechnicalGuide = new HashMap<String, List<String>>();
                                         result = rIn;
+                                        log = logIn;
+                                        log.writeMessage("In deSegateProducts Constructor", DebugLevel.CONSTRUCTOR);
 	}
 	
 	@Override

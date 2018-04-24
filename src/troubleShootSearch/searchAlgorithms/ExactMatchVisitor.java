@@ -7,6 +7,8 @@ import java.util.Map;
 import java.util.Set;
 
 import troubleShootSearch.Products.DSeagateProducts;
+import troubleShootSearch.enums.DebugLevel;
+import troubleShootSearch.util.Logger;
 import troubleShootSearch.util.Results;
 
 public class ExactMatchVisitor implements SearchAlgorithmsVisitorI {
@@ -16,15 +18,19 @@ public class ExactMatchVisitor implements SearchAlgorithmsVisitorI {
 	List<String> technicalProblemGuideForMediaPlayerProduct;
 */
                     private Results result;
-	public ExactMatchVisitor(Results rIn) {
+                    private Logger log;
+	public ExactMatchVisitor(Results rIn,Logger logIn) {
                             result = rIn;
+                            log=logIn;
+                            log.writeMessage("In Exact Match Constructor", DebugLevel.CONSTRUCTOR);
 	}
 
                     @Override
                     public void visit(DSeagateProducts dSeagateProducts) {
-
+                        log.writeMessage("Currently in Exact Match Search", DebugLevel.SEARCHSTRATEGY);
                         Set<String> s = dSeagateProducts.getMapOfTechnicalGuide().keySet();
                         for(String technicalGuideIterator: s) {
+                            log.writeMessage("Currently Processing"+technicalGuideIterator+"product for Exact Match", DebugLevel.PRODUCTS);
                              result.fileDisplay(technicalGuideIterator +" : ");
                              result.stdoutDisplay(technicalGuideIterator +" : ");
                             search(dSeagateProducts.getProblemKeyword(), dSeagateProducts.getMapOfTechnicalGuide().get(technicalGuideIterator));
@@ -48,6 +54,7 @@ public class ExactMatchVisitor implements SearchAlgorithmsVisitorI {
 		for(String string : exactMatchOutput) {
 			result.fileDisplay(string+"\n");
                                                             result.stdoutDisplay(string+"\n");
+                                                            log.writeMessage("Problem Keyword : "+ problemKeyword +"Exact Match result : "+ string, DebugLevel.SEARCH);
 		}
 		return exactMatchOutput;
 	}

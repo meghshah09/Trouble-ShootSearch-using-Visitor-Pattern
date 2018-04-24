@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import troubleShootSearch.enums.DebugLevel;
 
 /**
  *
@@ -18,9 +19,12 @@ public class FilesLoader {
     
     private FileProcessor fileProcessor;
     private List<String> userInputs = new ArrayList<>();
+    private Logger log;
     //private Map<String,List<String>> syn = new HashMap<>();
-   public FilesLoader(FileProcessor fpIn){
+   public FilesLoader(FileProcessor fpIn,Logger logIn){
         this.fileProcessor = fpIn;
+        log = logIn;
+        log.writeMessage("In File Loader Constructor", DebugLevel.CONSTRUCTOR);
     }
     
     public List<String> loadInputs(String file){
@@ -36,8 +40,8 @@ public class FilesLoader {
                 }
         }
         else{
-                System.out.println("Input File is Empty.");
-                System.out.println("Please Kindly enter the Data in the input and run it.");
+                 log.writeMessage("Input File Is empty", DebugLevel.NONE );
+                log.writeMessage("Please Kindly enter the Data in the input and run it.", DebugLevel.NONE );
                 System.exit(0);
         }
         fileProcessor.close();
@@ -65,8 +69,8 @@ public class FilesLoader {
                 }
         }
         else{
-                System.out.println("Input File is Empty.");
-                System.out.println("Please Kindly enter the Data in the input and run it.");
+                log.writeMessage( "Input File is Empty", DebugLevel.NONE);
+                log.writeMessage("Please Kindly enter the Data in the input and run it",DebugLevel.NONE);
                 System.exit(0);
         }
         fileProcessor.close();

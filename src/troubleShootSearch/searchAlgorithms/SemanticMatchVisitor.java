@@ -5,8 +5,10 @@ import java.util.Map;
 import java.util.Set;
 
 import troubleShootSearch.Products.DSeagateProducts;
+import troubleShootSearch.enums.DebugLevel;
 import troubleShootSearch.util.FileProcessor;
 import troubleShootSearch.util.FilesLoader;
+import troubleShootSearch.util.Logger;
 import troubleShootSearch.util.Results;
 
 public class SemanticMatchVisitor implements SearchAlgorithmsVisitorI{
@@ -14,17 +16,21 @@ public class SemanticMatchVisitor implements SearchAlgorithmsVisitorI{
 	private Map<String,List<String>> synonyms;
 	private FilesLoader fl;
                     private Results result;
-	public SemanticMatchVisitor(String fileIn, FileProcessor fpIn,Results rIn){
-		fl = new FilesLoader(fpIn);
+                    private Logger log;
+	public SemanticMatchVisitor(String fileIn, FileProcessor fpIn,Results rIn, Logger logIn){
+		fl = new FilesLoader(fpIn,logIn);
 		synonyms = fl.loadSynFile(fileIn);
                                            result=rIn;
+                                           log = logIn;
+                                           log.writeMessage("In Semantic Match Constructor", DebugLevel.CONSTRUCTOR);
 	}
 
 	@Override
 	public void visit(DSeagateProducts dSeagateProducts) {
-
+                                        log.writeMessage("Currently in Semantic Match Search", DebugLevel.SEARCHSTRATEGY);
 		Set<String> s = dSeagateProducts.getMapOfTechnicalGuide().keySet();
 		for(String technicalGuideIterator: s) {
+                                                             log.writeMessage("Currently Processing"+technicalGuideIterator+"product for Semantic Match", DebugLevel.PRODUCTS);
                                                              result.fileDisplay(technicalGuideIterator +" : ");
                                                                result.stdoutDisplay(technicalGuideIterator +" : ");
 			search(dSeagateProducts.getProblemKeyword(), dSeagateProducts.getMapOfTechnicalGuide().get(technicalGuideIterator));
@@ -58,6 +64,7 @@ public class SemanticMatchVisitor implements SearchAlgorithmsVisitorI{
 		for(String string : semanticMatchOutput) {
 			result.fileDisplay(string+"\n");
                                                             result.stdoutDisplay(string+"\n");
+                                                            log.writeMessage("Problem Keyword : "+ problemKeyword +"Semantic Match result : "+ string, DebugLevel.SEARCH);
 		}
 		return semanticMatchOutput;
 	}
