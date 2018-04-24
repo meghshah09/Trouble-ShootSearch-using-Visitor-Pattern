@@ -4,5 +4,5 @@ repair: rectification
 speed: rate
 noise: sound
 magnitude: volume
-CPU: processor
+CPU: processor Unit MotherBoard
 fix: troubleshoot

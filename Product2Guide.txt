@@ -1,4 +1,4 @@
-If Debian has a problem detecting the SDD drive, it could be that the portable drive is not receiving enough power.
+If SDD Debian has a problem detecting the SDD drive, it could be that the portable drive is not receiving enough power.
 Issue with SDD system storage, Kindly check the remaining space in the disk.
 SSD require capacitor & power supply, which are vulnerable to data transfer malfunctions ,In case of power failure, It may cause write data failure.
 SSD uses new technologies, it is a good practice to check the dSeagate portal to learn additionals details/(new technology on SSD).

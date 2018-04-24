@@ -70,16 +70,7 @@ public class FileProcessor {
         log= logIn;
         log.writeMessage("In File Processor Constructor ", DebugLevel.CONSTRUCTOR);
     }
-    
-    /*public void open(){
-        
-        try{
-        
-        }catch(FileNotFoundException e){
-            
-        }
-        
-    }*/
+
     
     /**
      * 

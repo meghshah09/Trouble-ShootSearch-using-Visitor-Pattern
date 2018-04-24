@@ -20,7 +20,7 @@ public class FilesLoader {
     private FileProcessor fileProcessor;
     private List<String> userInputs = new ArrayList<>();
     private Logger log;
-    //private Map<String,List<String>> syn = new HashMap<>();
+
    public FilesLoader(FileProcessor fpIn,Logger logIn){
         this.fileProcessor = fpIn;
         log = logIn;
@@ -65,7 +65,7 @@ public class FilesLoader {
                         temp.add(s);
                     syn.put(arr[0],temp);
                     str = fileProcessor.readLine();
-                   // temp.clear();
+  
                 }
         }
         else{

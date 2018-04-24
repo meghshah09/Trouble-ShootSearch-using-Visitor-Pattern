@@ -10,11 +10,7 @@ import troubleShootSearch.util.Logger;
 import troubleShootSearch.util.Results;
 
 public class NaiveStemmingMatchVisitor implements SearchAlgorithmsVisitorI{
-	/*List<String> technicalProblemGuideForHDDProduct;
-	List<String> technicalProblemGuideForSDDProduct;
-	List<String> technicalProblemGuideForUSBProduct;
-	List<String> technicalProblemGuideForMediaPlayerProduct;
-	*/
+
 	private Results result;
                     private Logger log;
 	public NaiveStemmingMatchVisitor(Results rIn,Logger logIn) {

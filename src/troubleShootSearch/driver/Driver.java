@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package troubleShootSearch.driver;
 import java.util.List;
 import java.util.Scanner;
@@ -54,19 +50,19 @@ public class Driver {
 			dSeagateProducts.setHDDProductTechnicalGuide(hddtechnicalGuide);
 			
 			FilesLoader fl2 = new FilesLoader(fp,log);
-			List<String> mediaPlayerTechnicalGuide = fl2.loadInputs("Product2Guide.txt");
+			List<String> mediaPlayerTechnicalGuide = fl2.loadInputs("Product3Guide.txt");
 			dSeagateProducts.setMediaPlayerProductTechnicalGuide(mediaPlayerTechnicalGuide);
 			FilesLoader fl3 = new FilesLoader(fp,log);
-			List<String> SSDtechnicalGuide = fl3.loadInputs("Product3Guide.txt");
+			List<String> SSDtechnicalGuide = fl3.loadInputs("Product2Guide.txt");
 			dSeagateProducts.setSDDProductTechnicalGuide(SSDtechnicalGuide);
 			FilesLoader fl4 = new FilesLoader(fp,log);
 			List<String> USBtechnicalGuide = fl4.loadInputs("Product4Guide.txt");
 			dSeagateProducts.setUSBProductTechnicalGuide(USBtechnicalGuide);
 				
-			dSeagateProducts.getMapOfTechnicalGuide().put("hddProduct", dSeagateProducts.getHDDProductTechnicalGuide());
-			dSeagateProducts.getMapOfTechnicalGuide().put("sddProduct", dSeagateProducts.getSDDProductTechnicalGuide());
-			dSeagateProducts.getMapOfTechnicalGuide().put("usbProduct", dSeagateProducts.getUSBProductTechnicalGuide());
-			dSeagateProducts.getMapOfTechnicalGuide().put("mediaPlayerProduct", dSeagateProducts.getMediaPlayerProductTechnicalGuide());
+			dSeagateProducts.getMapOfTechnicalGuide().put("HDDProduct", dSeagateProducts.getHDDProductTechnicalGuide());
+			dSeagateProducts.getMapOfTechnicalGuide().put("SDDProduct", dSeagateProducts.getSDDProductTechnicalGuide());
+			dSeagateProducts.getMapOfTechnicalGuide().put("USBProduct", dSeagateProducts.getUSBProductTechnicalGuide());
+			dSeagateProducts.getMapOfTechnicalGuide().put("MediaPlayerProduct", dSeagateProducts.getMediaPlayerProductTechnicalGuide());
 			
 			SearchAlgorithmsVisitorI exactMatch = new ExactMatchVisitor(r,log);
 			SearchAlgorithmsVisitorI naiveStemmingMatch = new NaiveStemmingMatchVisitor(r,log);
