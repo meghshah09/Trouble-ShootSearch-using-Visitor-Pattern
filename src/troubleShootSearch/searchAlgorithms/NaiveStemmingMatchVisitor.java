@@ -46,7 +46,7 @@ public class NaiveStemmingMatchVisitor implements SearchAlgorithmsVisitorI {
     public List<String> search(String problemKeyword, List<String> technicalProblemGuide) {
 
         String[] tempArray = problemKeyword.trim().split(" ");
-        List<String> naiveStemmingMatchOutput = new ArrayList<String>();
+        List<String> naiveStemmingMatchOutput = new ArrayList<>();
         if (technicalProblemGuide != null) {
             for (String string : technicalProblemGuide) {
                 if (string.contains(tempArray[0])) {

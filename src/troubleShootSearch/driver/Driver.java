@@ -55,10 +55,7 @@ public class Driver {
 			List<String> USBtechnicalGuide = fl4.loadInputs("inputs/Product4Guide.txt");
 			dSeagateProducts.setUSBProductTechnicalGuide(USBtechnicalGuide);
 				
-			dSeagateProducts.getMapOfTechnicalGuide().put("HDDProduct", dSeagateProducts.getHDDProductTechnicalGuide());
-			dSeagateProducts.getMapOfTechnicalGuide().put("SDDProduct", dSeagateProducts.getSDDProductTechnicalGuide());
-			dSeagateProducts.getMapOfTechnicalGuide().put("USBProduct", dSeagateProducts.getUSBProductTechnicalGuide());
-			dSeagateProducts.getMapOfTechnicalGuide().put("MediaPlayerProduct", dSeagateProducts.getMediaPlayerProductTechnicalGuide());
+			dSeagateProducts.setMapOfTechnicalGuide();
 			
 			SearchAlgorithmsVisitorI exactMatch = new ExactMatchVisitor(r);
 			SearchAlgorithmsVisitorI naiveStemmingMatch = new NaiveStemmingMatchVisitor(r);

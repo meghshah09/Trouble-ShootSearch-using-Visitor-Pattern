@@ -1,6 +1,5 @@
 package troubleShootSearch.Products;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -149,8 +148,11 @@ public class DSeagateProducts implements ProductsI {
  * 
  * @param mapOfTechnicalGuide contains the map of all of technical guide for all products 
  */
-    public void setMapOfTechnicalGuide(Map<String, List<String>> mapOfTechnicalGuide) {
-        this.mapOfTechnicalGuide = mapOfTechnicalGuide;
+    public void setMapOfTechnicalGuide() {
+        mapOfTechnicalGuide.put("HDDProduct", this.getHDDProductTechnicalGuide());
+       mapOfTechnicalGuide.put("SDDProduct", this.getSDDProductTechnicalGuide());
+        mapOfTechnicalGuide.put("USBProduct", this.getUSBProductTechnicalGuide());
+        mapOfTechnicalGuide.put("MediaPlayerProduct",this.getMediaPlayerProductTechnicalGuide());
     }
 
 }

@@ -1,8 +1,0 @@
-crash: malfunctions
-more: additionals
-repair: rectification
-speed: rate
-noise: sound
-magnitude: volume
-CPU: processor Unit MotherBoard
-fix: troubleshoot
