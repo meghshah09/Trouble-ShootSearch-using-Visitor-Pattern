@@ -19,14 +19,19 @@ public class FilesLoader {
     
     private FileProcessor fileProcessor;
     private List<String> userInputs = new ArrayList<>();
-    private Logger log;
-
-   public FilesLoader(FileProcessor fpIn,Logger logIn){
+/**
+ * 
+ * @param fpIn FileProcessor Object
+ */
+   public FilesLoader(FileProcessor fpIn){
         this.fileProcessor = fpIn;
-        log = logIn;
-        log.writeMessage("In File Loader Constructor", DebugLevel.CONSTRUCTOR);
+        Logger.writeMessage("In File Loader Constructor", DebugLevel.CONSTRUCTOR);
     }
-    
+    /**
+     * 
+     * @param file take the file name as input.
+     * @return the List of all inputs
+     */
     public List<String> loadInputs(String file){
         fileProcessor.setFileName(file);
         fileProcessor.setCount(0);
@@ -40,14 +45,18 @@ public class FilesLoader {
                 }
         }
         else{
-                 log.writeMessage("Input File Is empty", DebugLevel.NONE );
-                log.writeMessage("Please Kindly enter the Data in the input and run it.", DebugLevel.NONE );
+                 Logger.writeMessage("Input File Is empty", DebugLevel.NONE );
+                Logger.writeMessage("Please Kindly enter the Data in the input and run it.", DebugLevel.NONE );
                 System.exit(0);
         }
         fileProcessor.close();
         return userInputs;
     }
-    
+    /**
+     * 
+     * @param fileIn takes the file name as input
+     * @return returns the Key value data structure
+     */
     public Map<String,List<String>> loadSynFile(String fileIn){
         Map<String,List<String>> syn = new HashMap<>();
         
@@ -69,13 +78,20 @@ public class FilesLoader {
                 }
         }
         else{
-                log.writeMessage( "Input File is Empty", DebugLevel.NONE);
-                log.writeMessage("Please Kindly enter the Data in the input and run it",DebugLevel.NONE);
+                Logger.writeMessage( "Input File is Empty", DebugLevel.NONE);
+                Logger.writeMessage("Please Kindly enter the Data in the input and run it",DebugLevel.NONE);
                 System.exit(0);
         }
         fileProcessor.close();
         return syn;
     }
-    
-    
+/**
+ * 
+ * @return object in string form. 
+ */    
+    @Override
+  public String toString(){
+      String str= "In Class File Loader";
+      return str;
+  }  
 }

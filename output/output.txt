@@ -1,0 +1,641 @@
+
+Performing [ Exact Match ] on All Products 
+
+
+Problem Keyword : problem detecting
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+If SDD Debian has a problem detecting the SDD drive, it could be that the portable drive is not receiving enough power.
+
+
+Problem Keyword : extended storage device
+HDDProduct : 
+Hard Disk Drive is full, please remove files from extended storage device.
+
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : saved data
+HDDProduct : 
+MediaPlayerProduct : 
+To retrive saved data from Media Players, Kindly reboot your system.
+
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : system storage
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+Issue with SDD system storage, Kindly check the remaining space in the disk.
+
+
+Problem Keyword : install application
+HDDProduct : 
+MediaPlayerProduct : 
+Compatibility issue of media player with the system, Kindly install application with newer version.
+
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : format HDD
+HDDProduct : 
+To read data from HDD drive, kindly format HDD once and check again.
+
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : install location
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+While copying an app from USB, Select install location to program files folder in C directory.
+
+SDDProduct : 
+
+Problem Keyword : copy data
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : slow transfer
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+Copying to USB from system may have slow transfer rate, To remove this problem download dSeagate data transfer boost application.
+
+SDDProduct : 
+
+Problem Keyword : data transfer crash
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : learn more
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : download disk repair
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : detect error
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : click sound
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : quick read speed
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : run time
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : find data
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : HDD noise
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : issue with sound magnitute
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : compatible CPU
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : USB compatibility fix
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : replace the SATA wire
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : get a refund
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : replace old hard drives
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : updating the software
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : alot of errors
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : designed for laptop machines
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Performing [ Naive Stemming  Match ] on All Products 
+
+
+Problem Keyword : problem detecting
+HDDProduct : 
+For HDD sound problem, kindly restart your PC once, if the problem still persist, please visit near by dSeagate outlet.
+
+MediaPlayerProduct : 
+USBProduct : 
+Copying to USB from system may have slow transfer rate, To remove this problem download dSeagate data transfer boost application.
+
+SDDProduct : 
+If SDD Debian has a problem detecting the SDD drive, it could be that the portable drive is not receiving enough power.
+
+
+Problem Keyword : extended storage device
+HDDProduct : 
+Hard Disk Drive is full, please remove files from extended storage device.
+
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : saved data
+HDDProduct : 
+MediaPlayerProduct : 
+To retrive saved data from Media Players, Kindly reboot your system.
+
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : system storage
+HDDProduct : 
+MediaPlayerProduct : 
+To retrive saved data from Media Players, Kindly reboot your system.
+
+Compatibility issue of media player with the system, Kindly install application with newer version.
+
+USBProduct : 
+Check USB has connected properly, if copying data to system is not done properly.
+
+Copying to USB from system may have slow transfer rate, To remove this problem download dSeagate data transfer boost application.
+
+USB not detecting, Kindly re-insert into system.
+
+SDDProduct : 
+Issue with SDD system storage, Kindly check the remaining space in the disk.
+
+
+Problem Keyword : install application
+HDDProduct : 
+MediaPlayerProduct : 
+Compatibility issue of media player with the system, Kindly install application with newer version.
+
+USBProduct : 
+While copying an app from USB, Select install location to program files folder in C directory.
+
+SDDProduct : 
+While installing SDD drive, make sure for replaceing the power wire and plugged in again after it is done to boot the drive properly.
+
+
+Problem Keyword : format HDD
+HDDProduct : 
+To read data from HDD drive, kindly format HDD once and check again.
+
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : install location
+HDDProduct : 
+MediaPlayerProduct : 
+Compatibility issue of media player with the system, Kindly install application with newer version.
+
+USBProduct : 
+While copying an app from USB, Select install location to program files folder in C directory.
+
+SDDProduct : 
+While installing SDD drive, make sure for replaceing the power wire and plugged in again after it is done to boot the drive properly.
+
+
+Problem Keyword : copy data
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+While copying an app from USB, Select install location to program files folder in C directory.
+
+Check USB has connected properly, if copying data to system is not done properly.
+
+SDDProduct : 
+
+Problem Keyword : slow transfer
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+Copying to USB from system may have slow transfer rate, To remove this problem download dSeagate data transfer boost application.
+
+SDDProduct : 
+
+Problem Keyword : data transfer crash
+HDDProduct : 
+To read data from HDD drive, kindly format HDD once and check again.
+
+MediaPlayerProduct : 
+To retrive saved data from Media Players, Kindly reboot your system.
+
+USBProduct : 
+Check USB has connected properly, if copying data to system is not done properly.
+
+Copying to USB from system may have slow transfer rate, To remove this problem download dSeagate data transfer boost application.
+
+SDDProduct : 
+SSD require capacitor & power supply, which are vulnerable to data transfer malfunctions ,In case of power failure, It may cause write data failure.
+
+
+Problem Keyword : learn more
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+SSD uses new technologies, it is a good practice to check the dSeagate portal to learn additionals details/(new technology on SSD).
+
+
+Problem Keyword : download disk repair
+HDDProduct : 
+MediaPlayerProduct : 
+If media player is giving compatible processor error, kindly download correct version of media player.
+
+USBProduct : 
+Copying to USB from system may have slow transfer rate, To remove this problem download dSeagate data transfer boost application.
+
+SDDProduct : 
+For SSD hardware issue, download disk rectification application and follow steps given there or kindly visit nearest outlet of dSeagate Inc rather than downloading any application
+
+
+Problem Keyword : detect error
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+USB not detecting, Kindly re-insert into system.
+
+SDDProduct : 
+If SDD Debian has a problem detecting the SDD drive, it could be that the portable drive is not receiving enough power.
+
+
+Problem Keyword : click sound
+HDDProduct : 
+MediaPlayerProduct : 
+Media players sound can also be manage by clicking Manage tab in the Media Player and clicking adjust sound button 
+
+USBProduct : 
+In the File Download dialog box, click Run or Open, and then follow the steps in the Windows USB compatibility troubleshoot.
+
+SDDProduct : 
+
+Problem Keyword : quick read speed
+HDDProduct : 
+HDD quick read rate factor can be increased by selecting boost power option present by selecting it in  the settings menu of the computer.
+
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : run time
+HDDProduct : 
+In HDD, to make application running with high speed, Kindly close un-neccesary application from Task Manager.
+
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : find data
+HDDProduct : 
+MediaPlayerProduct : 
+Media player Files are by default stored in a temporary  location, for finding it go to document folder which is by default set there. 
+
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : HDD noise
+HDDProduct : 
+To read data from HDD drive, kindly format HDD once and check again.
+
+HDD quick read rate factor can be increased by selecting boost power option present by selecting it in  the settings menu of the computer.
+
+In HDD, to make application running with high speed, Kindly close un-neccesary application from Task Manager.
+
+For HDD sound problem, kindly restart your PC once, if the problem still persist, please visit near by dSeagate outlet.
+
+HDD older drives can be replaced and new can be buy from any nearest dSeagate outlet.
+
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : issue with sound magnitute
+HDDProduct : 
+MediaPlayerProduct : 
+Compatibility issue of media player with the system, Kindly install application with newer version.
+
+For issue with sound volume in media player, kindly go to setting and check volume and choose according to your need.
+
+USBProduct : 
+SDDProduct : 
+For SSD hardware issue, download disk rectification application and follow steps given there or kindly visit nearest outlet of dSeagate Inc rather than downloading any application
+
+
+Problem Keyword : compatible CPU
+HDDProduct : 
+MediaPlayerProduct : 
+If media player is giving compatible processor error, kindly download correct version of media player.
+
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : USB compatibility fix
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+While copying an app from USB, Select install location to program files folder in C directory.
+
+Check USB has connected properly, if copying data to system is not done properly.
+
+Copying to USB from system may have slow transfer rate, To remove this problem download dSeagate data transfer boost application.
+
+USB not detecting, Kindly re-insert into system.
+
+In the File Download dialog box, click Run or Open, and then follow the steps in the Windows USB compatibility troubleshoot.
+
+SDDProduct : 
+
+Problem Keyword : replace the SATA wire
+HDDProduct : 
+HDD older drives can be replaced and new can be buy from any nearest dSeagate outlet.
+
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+While installing SDD drive, make sure for replaceing the power wire and plugged in again after it is done to boot the drive properly.
+
+If SDD drive is breaks with in waranty time, kindly replace it and for getting refund kindly drop an email to customerCare@dSeagate.com
+
+
+Problem Keyword : get a refund
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+If SDD drive is breaks with in waranty time, kindly replace it and for getting refund kindly drop an email to customerCare@dSeagate.com
+
+
+Problem Keyword : replace old hard drives
+HDDProduct : 
+HDD older drives can be replaced and new can be buy from any nearest dSeagate outlet.
+
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+While installing SDD drive, make sure for replaceing the power wire and plugged in again after it is done to boot the drive properly.
+
+If SDD drive is breaks with in waranty time, kindly replace it and for getting refund kindly drop an email to customerCare@dSeagate.com
+
+
+Problem Keyword : updating the software
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : alot of errors
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : designed for laptop machines
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Performing [ Semantic Match ] on All Products 
+
+
+Problem Keyword : problem detecting
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : extended storage device
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : saved data
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : system storage
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : install application
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : format HDD
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : install location
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : copy data
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : slow transfer
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : data transfer crash
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+SSD require capacitor & power supply, which are vulnerable to data transfer malfunctions ,In case of power failure, It may cause write data failure.
+
+
+Problem Keyword : learn more
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+SSD uses new technologies, it is a good practice to check the dSeagate portal to learn additionals details/(new technology on SSD).
+
+
+Problem Keyword : download disk repair
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+For SSD hardware issue, download disk rectification application and follow steps given there or kindly visit nearest outlet of dSeagate Inc rather than downloading any application
+
+
+Problem Keyword : detect error
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : click sound
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : quick read speed
+HDDProduct : 
+HDD quick read rate factor can be increased by selecting boost power option present by selecting it in  the settings menu of the computer.
+
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : run time
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : find data
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : HDD noise
+HDDProduct : 
+For HDD sound problem, kindly restart your PC once, if the problem still persist, please visit near by dSeagate outlet.
+
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : issue with sound magnitute
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : compatible CPU
+HDDProduct : 
+MediaPlayerProduct : 
+If media player is giving compatible processor error, kindly download correct version of media player.
+
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : USB compatibility fix
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+In the File Download dialog box, click Run or Open, and then follow the steps in the Windows USB compatibility troubleshoot.
+
+SDDProduct : 
+
+Problem Keyword : replace the SATA wire
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : get a refund
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : replace old hard drives
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : updating the software
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : alot of errors
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 
+
+Problem Keyword : designed for laptop machines
+HDDProduct : 
+MediaPlayerProduct : 
+USBProduct : 
+SDDProduct : 

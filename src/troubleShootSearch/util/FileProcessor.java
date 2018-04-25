@@ -20,7 +20,6 @@ public class FileProcessor {
     
     private String fileName;
     private Scanner scan;
-    private Logger log;
     private final List<String> fileData = new ArrayList<>();
     private File file;
     private int count;
@@ -65,10 +64,9 @@ public class FileProcessor {
      * 
      * @param scanIn - parameterized constructor that sets the constructor.
      */
-    public FileProcessor(Scanner scanIn,Logger logIn){
+    public FileProcessor(Scanner scanIn){
         this.scan = scanIn;
-        log= logIn;
-        log.writeMessage("In File Processor Constructor ", DebugLevel.CONSTRUCTOR);
+        Logger.writeMessage("In File Processor Constructor ", DebugLevel.CONSTRUCTOR);
     }
 
     
@@ -93,12 +91,12 @@ public class FileProcessor {
         
         }
         else{
-          log.writeMessage(this.getFileName()+" File does not exist", DebugLevel.NONE );
+          Logger.writeMessage(this.getFileName()+" File does not exist", DebugLevel.NONE );
             System.exit(0);
         }
        }catch(IOException e){
         //System.out.println("exception"); 
-            log.writeMessage(this.getFileName()+" File does not exist", DebugLevel.NONE );
+            Logger.writeMessage(this.getFileName()+" File does not exist", DebugLevel.NONE );
             System.exit(0);
        }
        finally{
@@ -125,8 +123,8 @@ public void close(){
     try{
         scan.close();
     }catch(Exception e){
-         log.writeMessage("Cannot close the File", DebugLevel.NONE );
-         log.writeMessage("Exiting....", DebugLevel.NONE );
+         Logger.writeMessage("Cannot close the File", DebugLevel.NONE );
+         Logger.writeMessage("Exiting....", DebugLevel.NONE );
         System.exit(0); 
     }
 }

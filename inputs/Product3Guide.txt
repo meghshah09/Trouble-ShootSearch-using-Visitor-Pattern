@@ -1,0 +1,6 @@
+To retrive saved data from Media Players, Kindly reboot your system.
+Compatibility issue of media player with the system, Kindly install application with newer version.
+Media players sound can also be manage by clicking Manage tab in the Media Player and clicking adjust sound button 
+Media player Files are by default stored in a temporary  location, for finding it go to document folder which is by default set there. 
+For issue with sound volume in media player, kindly go to setting and check volume and choose according to your need.
+If media player is giving compatible processor error, kindly download correct version of media player.

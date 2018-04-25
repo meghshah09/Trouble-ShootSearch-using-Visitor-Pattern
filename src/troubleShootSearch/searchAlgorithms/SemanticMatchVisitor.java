@@ -16,28 +16,40 @@ public class SemanticMatchVisitor implements SearchAlgorithmsVisitorI{
 	private Map<String,List<String>> synonyms;
 	private FilesLoader fl;
                     private Results result;
-                    private Logger log;
-	public SemanticMatchVisitor(String fileIn, FileProcessor fpIn,Results rIn, Logger logIn){
-		fl = new FilesLoader(fpIn,logIn);
+                    /**
+                     * 
+                     * @param fileIn contains the file name
+                     * @param fpIn contains the FileProcessor Object
+                     * @param rIn contains the result class object
+                     */
+	public SemanticMatchVisitor(String fileIn, FileProcessor fpIn,Results rIn){
+                                        FilesLoader fl = new FilesLoader(fpIn);
 		synonyms = fl.loadSynFile(fileIn);
                                            result=rIn;
-                                           log = logIn;
-                                           log.writeMessage("In Semantic Match Constructor", DebugLevel.CONSTRUCTOR);
+                                           Logger.writeMessage("In Semantic Match Constructor", DebugLevel.CONSTRUCTOR);
 	}
-
+                     /**
+                      * 
+                      * @param dSeagateProducts contains a reference to all the products
+                      */
 	@Override
 	public void visit(DSeagateProducts dSeagateProducts) {
-                                        log.writeMessage("Currently in Semantic Match Search", DebugLevel.SEARCHSTRATEGY);
+                                        Logger.writeMessage("Currently in Semantic Match Search", DebugLevel.SEARCHSTRATEGY);
 		Set<String> s = dSeagateProducts.getMapOfTechnicalGuide().keySet();
 		for(String technicalGuideIterator: s) {
-                                                             log.writeMessage("Currently Processing"+technicalGuideIterator+"product for Semantic Match", DebugLevel.PRODUCTS);
+                                                             Logger.writeMessage("Currently Processing"+technicalGuideIterator+"product for Semantic Match", DebugLevel.PRODUCTS);
                                                              result.fileDisplay(technicalGuideIterator +" : ");
                                                                result.stdoutDisplay(technicalGuideIterator +" : ");
 			search(dSeagateProducts.getProblemKeyword(), dSeagateProducts.getMapOfTechnicalGuide().get(technicalGuideIterator));
 		}
 
 	}
-
+                       /**
+                        * 
+                        * @param problemKeyword Contains a String of problem keyword.
+                        * @param technicalProblemGuide Contains a list of product technical guide.
+                        * @return 
+                        */
 	@Override
 	public List<String> search(String problemKeyword, List<String> technicalProblemGuide) {
 		String tempArray[]=problemKeyword.trim().split(" ");
@@ -64,7 +76,7 @@ public class SemanticMatchVisitor implements SearchAlgorithmsVisitorI{
 		for(String string : semanticMatchOutput) {
 			result.fileDisplay(string+"\n");
                                                             result.stdoutDisplay(string+"\n");
-                                                            log.writeMessage("Problem Keyword : "+ problemKeyword +"Semantic Match result : "+ string, DebugLevel.SEARCH);
+                                                            Logger.writeMessage("Problem Keyword : "+ problemKeyword +"Semantic Match result : "+ string, DebugLevel.SEARCH);
 		}
 		return semanticMatchOutput;
 	}

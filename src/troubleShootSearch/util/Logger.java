@@ -10,7 +10,11 @@ public class Logger {
 
     private static DebugLevel debugLevel;
     // FIXME: Add switch cases for all the levels
-    public  void setDebugValue (int levelIn) {
+    /**
+     * 
+     * @param levelIn specifies the Debug Level
+     */
+    public  static void setDebugValue (int levelIn) {
 	switch (levelIn) {
 	case 4: debugLevel = DebugLevel.SEARCHSTRATEGY;
 			break;
@@ -26,17 +30,28 @@ public class Logger {
 			break;
 	}
     }
-
-    public  void setDebugValue (DebugLevel levelIn) {
+/**
+ * 
+ * @param levelIn specifies the debug level
+ */
+    public  static void setDebugValue (DebugLevel levelIn) {
 	debugLevel = levelIn;
     }
-
-    public  void writeMessage (String     message  ,
+/**
+ * 
+ * @param message String to be printed
+ * @param levelIn specifies the debug level
+ */
+    public  static void writeMessage (String     message  ,
                                      DebugLevel levelIn ) {
 	if (levelIn == debugLevel)
 	    System.out.println(message);
     }
-
+/**
+ * 
+ * @return the String specifing the debug level
+ */
+    @Override
     public String toString() {
 	return "The debug level has been set to the following " + debugLevel;
     }

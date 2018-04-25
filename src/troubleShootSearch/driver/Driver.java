@@ -3,6 +3,7 @@ package troubleShootSearch.driver;
 import java.util.List;
 import java.util.Scanner;
 import troubleShootSearch.Products.DSeagateProducts;
+import troubleShootSearch.enums.DebugLevel;
 import troubleShootSearch.searchAlgorithms.ExactMatchVisitor;
 import troubleShootSearch.searchAlgorithms.NaiveStemmingMatchVisitor;
 import troubleShootSearch.searchAlgorithms.SearchAlgorithmsVisitorI;
@@ -21,10 +22,6 @@ public class Driver {
 	/**
 	 * @param args the command line arguments
 	 */
- 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 
 		if(args.length==2){
@@ -36,27 +33,26 @@ public class Driver {
 			System.out.println("Trying to See Search from the given input file : "+ args[0]+" given.....");
 			System.out.println("");
 			Scanner scan = new Scanner(System.in);
-                                                            Logger log = new Logger();
-                                                             log.setDebugValue(Integer.parseInt(args[1]));
-			FileProcessor fp = new FileProcessor(scan,log);
-			FilesLoader fl = new FilesLoader(fp,log);
+                                                            Logger.setDebugValue(Integer.parseInt(args[1]));
+			FileProcessor fp = new FileProcessor(scan);
+			FilesLoader fl = new FilesLoader(fp);
                                                              Results r = new Results();
-                                                             r.openingOutputFile("output.txt");
+                                                             r.openingOutputFile("output/output.txt");
 			List<String> userSentences = fl.loadInputs(args[0]);
 
-			DSeagateProducts dSeagateProducts = new DSeagateProducts(userSentences,r,log);
-			FilesLoader fl1 = new FilesLoader(fp,log);
-			List<String> hddtechnicalGuide = fl1.loadInputs("Product1Guide.txt");
+			DSeagateProducts dSeagateProducts = new DSeagateProducts(userSentences,r);
+			FilesLoader fl1 = new FilesLoader(fp);
+			List<String> hddtechnicalGuide = fl1.loadInputs("inputs/Product1Guide.txt");
 			dSeagateProducts.setHDDProductTechnicalGuide(hddtechnicalGuide);
 			
-			FilesLoader fl2 = new FilesLoader(fp,log);
-			List<String> mediaPlayerTechnicalGuide = fl2.loadInputs("Product3Guide.txt");
+			FilesLoader fl2 = new FilesLoader(fp);
+			List<String> mediaPlayerTechnicalGuide = fl2.loadInputs("inputs/Product3Guide.txt");
 			dSeagateProducts.setMediaPlayerProductTechnicalGuide(mediaPlayerTechnicalGuide);
-			FilesLoader fl3 = new FilesLoader(fp,log);
-			List<String> SSDtechnicalGuide = fl3.loadInputs("Product2Guide.txt");
+			FilesLoader fl3 = new FilesLoader(fp);
+			List<String> SSDtechnicalGuide = fl3.loadInputs("inputs/Product2Guide.txt");
 			dSeagateProducts.setSDDProductTechnicalGuide(SSDtechnicalGuide);
-			FilesLoader fl4 = new FilesLoader(fp,log);
-			List<String> USBtechnicalGuide = fl4.loadInputs("Product4Guide.txt");
+			FilesLoader fl4 = new FilesLoader(fp);
+			List<String> USBtechnicalGuide = fl4.loadInputs("inputs/Product4Guide.txt");
 			dSeagateProducts.setUSBProductTechnicalGuide(USBtechnicalGuide);
 				
 			dSeagateProducts.getMapOfTechnicalGuide().put("HDDProduct", dSeagateProducts.getHDDProductTechnicalGuide());
@@ -64,9 +60,9 @@ public class Driver {
 			dSeagateProducts.getMapOfTechnicalGuide().put("USBProduct", dSeagateProducts.getUSBProductTechnicalGuide());
 			dSeagateProducts.getMapOfTechnicalGuide().put("MediaPlayerProduct", dSeagateProducts.getMediaPlayerProductTechnicalGuide());
 			
-			SearchAlgorithmsVisitorI exactMatch = new ExactMatchVisitor(r,log);
-			SearchAlgorithmsVisitorI naiveStemmingMatch = new NaiveStemmingMatchVisitor(r,log);
-			SearchAlgorithmsVisitorI semanticMatch = new SemanticMatchVisitor("synonyms.txt",fp,r,log);
+			SearchAlgorithmsVisitorI exactMatch = new ExactMatchVisitor(r);
+			SearchAlgorithmsVisitorI naiveStemmingMatch = new NaiveStemmingMatchVisitor(r);
+			SearchAlgorithmsVisitorI semanticMatch = new SemanticMatchVisitor("inputs/synonyms.txt",fp,r);
                                                             r.fileDisplay("\nPerforming [ Exact Match ] on All Products \n");
                                                             r.stdoutDisplay("\nPerforming [ Exact Match ] on All Products \n");
 			dSeagateProducts.accept(exactMatch);
@@ -81,7 +77,7 @@ public class Driver {
 
 		}
                                         else{
-                                                    System.out.println("Not Correct Command line Arguements");
+                                                    Logger.writeMessage("Not Correct Command line Arguements", DebugLevel.NONE);
                                                     System.exit(0);
                                         }
 	}
